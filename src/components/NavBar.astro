@@ -1,0 +1,124 @@
+---
+import { Image } from "astro:assets";
+import NavBarLinks from "./NavBarLinks.astro";
+
+
+---
+
+<nav>
+    <div class="nav">
+        <a href="/"><Image src={'/favicon.svg'} alt={'Logo Ctdev'} width={30} height={30} loading={'eager'}/></a>
+    <div class="navigation">
+        <NavBarLinks href={'/'}>Inicio</NavBarLinks>
+        <NavBarLinks href={'/proyectos/'}>Proyectos</NavBarLinks>
+        <NavBarLinks href={'/contacto/'}>Contacto</NavBarLinks>
+    </div>
+    
+    <div class="social">
+        <a href="https://github.com/Cesart18" target="_blank"><Image src={'/icons/github.svg'} alt={'github'} width={30} height={30} loading={'eager'}/></a>
+        <a href="https://www.linkedin.com/in/cesar-tovar-584111164" target="_blank"><Image src={'/icons/linkedin.svg'} alt={'linkedin'} width={30} height={30} loading={'eager'}/></a>
+    </div>
+    
+    
+    <Image src={'/icons/menu.svg'} alt={'Menu'} width={30} height={30} loading={'eager'} class={'menu'}/>
+    
+    </div>
+    <div class="navigation-m">
+        <NavBarLinks href={'/'}>Inicio</NavBarLinks>
+        <NavBarLinks href={'/proyectos/'}>Proyectos</NavBarLinks>
+        <NavBarLinks href={'/contacto/'}>Contacto</NavBarLinks>
+    </div>
+</nav>
+
+<style>
+    nav{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1.2rem 1.3rem;
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 2000;
+        max-width: 600px;
+    }
+    .nav{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    a{
+        display: flex;
+        align-items: center;
+    }
+    .navigation{
+        display: none;
+    }
+    .navigation-m{
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+    }
+    .show{
+        height: 60px;
+    }
+    .social{
+        display: none;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+        nav{
+            max-width: 680px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        nav{
+            max-width: 768px;
+            padding: 1.7rem 1.3rem;
+        }
+        img{
+            width: 36px;
+            transition: all .3s ease-in-out;
+        }
+        img:hover{
+            transform: scale(1.1);
+            filter: opacity(.8);
+        }
+        .menu{
+            display: none;
+        }
+        .social{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .navigation{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+    }
+</style>
+<script>
+    const menu = document.querySelector('.menu');
+    const nav = document.querySelector('.navigation-m');
+    menu?.addEventListener('click', () => {
+        nav?.classList.toggle('show');
+    });
+
+    document.addEventListener('scroll', () => {
+        nav?.classList.remove('show');
+    });
+</script>
