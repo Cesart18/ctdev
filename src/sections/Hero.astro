@@ -1,0 +1,155 @@
+---
+import { Image } from "astro:assets";
+
+
+---
+
+<section>
+    
+        <div class="hero">
+            <div class="memoji">
+                <Image src={'/images/programador.png'} alt={'memoji'} width={200} height={200} loading={'eager'} />
+            </div>
+        <h1></h1>
+        </div>
+        <a href="#about" class="arrow">
+
+        </a>
+</section>
+<style>
+    section{
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 110px 20px 10px 20px;
+        border-radius: 30px;
+        background: linear-gradient(
+            to bottom right, var(--bg-color) ,var(--secondary), var(--primary)  
+        );
+        gap: 100px;
+    }
+
+    .hero{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    h1{
+        max-width: 220px;
+        /* line-height: 50px; */
+        text-align: center;
+        min-height: 100px;
+    }
+    img{
+        width: 100%;
+        animation: show-in 1s ease-in-out ;
+    }
+    .memoji{
+        width: 200px;
+        min-height: 260px;
+        height: 100%;
+    }
+    .arrow{
+        min-height: 50px;
+        animation: pulse 1s linear infinite;
+    }
+
+    @media (min-width: 768px) {
+        section{
+            padding: 180px 20px 10px 20px;
+            gap: 60px;
+        }
+        .hero{
+            flex-direction: row-reverse;
+            gap: 120px;
+        }
+        .memoji{
+            width: 250px;
+            min-height: 400px;
+        }
+        h1{
+            min-width: 400px;
+            max-width: 400px;
+        }
+        .arrow:hover{
+            filter: opacity(.8);
+        }
+    }
+    @keyframes show-in {
+        from{
+            scale: .2;
+            opacity: 0;
+        }
+        
+        to{
+            scale: 1;
+            opacity: 1;
+        }
+        
+    }
+    @keyframes slide-in {
+        from{
+            scale: .8;
+            opacity: 0;
+        }
+        
+        to{
+            scale: 1;
+            opacity: 1;
+        }
+        
+    }
+
+    @keyframes pulse {
+        0%{
+            scale: 1;
+        }
+        50%{
+            scale: 1.105;
+        }
+        100%{
+            scale: 1;
+        }
+    }
+
+    @keyframes arrow-up {
+        0%{
+            transform: translateY(-200px);
+            opacity: 0;
+        }
+        100%{
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+</style>
+
+<script>
+    import Typed from 'typed.js';
+    const memoji = document.querySelector('.memoji');
+    const arrow = document.querySelector('.arrow');
+    const typed = new Typed('h1', {
+  strings: ['<span style="color:var(--primary)" >Desarrollador<span> <span style="color:white">Movil y Web<span>',],
+  typeSpeed: 80,
+  autoInsertCss: true,
+  showCursor: false
+});
+
+   
+    typed.stop();
+    setTimeout( () => typed.start() , 1000);
+
+    setTimeout( () => {
+        memoji!.innerHTML = `<img src='/images/peace.png' alt='memoji' width='200px' height='200px' loading='eager' style="animation: slide-in 2s ease-in-out; width: 100%" >`;
+    },4200 )
+
+    setTimeout(() => {
+        arrow!.innerHTML = `<img src='/icons/arrow-down.svg' alt='arrow down' width='30px' height='30px' loading='eager' style="animation: arrow-up 1s ease-in-out" >`
+    }, 4300)
+
+</script>

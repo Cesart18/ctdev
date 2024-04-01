@@ -45,6 +45,7 @@ import NavBarLinks from "./NavBarLinks.astro";
         margin: auto;
         z-index: 2000;
         max-width: 600px;
+        transition: all .5s ease-in-out;
     }
     .nav{
         display: flex;
@@ -60,7 +61,7 @@ import NavBarLinks from "./NavBarLinks.astro";
         display: none;
     }
     .navigation-m{
-        margin-top: 10px;
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -79,6 +80,7 @@ import NavBarLinks from "./NavBarLinks.astro";
     @media screen and (min-width: 768px) and (max-width: 1023px){
         nav{
             max-width: 680px;
+            top: 16px;
         }
     }
 
