@@ -16,6 +16,7 @@ import { Image } from "astro:assets";
 
         </a>
 </section>
+
 <style>
     section{
         width: 100%;
@@ -59,6 +60,7 @@ import { Image } from "astro:assets";
         animation: pulse 1s linear infinite;
     }
 
+    
     @media (min-width: 768px) {
         section{
             padding: 180px 20px 10px 20px;
@@ -80,9 +82,12 @@ import { Image } from "astro:assets";
             filter: opacity(.8);
         }
     }
+
+   
+
     @keyframes show-in {
         from{
-            scale: .2;
+            scale: .9;
             opacity: 0;
         }
         
@@ -94,12 +99,12 @@ import { Image } from "astro:assets";
     }
     @keyframes slide-in {
         from{
-            scale: .8;
+            /* scale: .8; */
             opacity: 0;
         }
         
         to{
-            scale: 1;
+            /* scale: 1; */
             opacity: 1;
         }
         
@@ -141,12 +146,36 @@ import { Image } from "astro:assets";
   showCursor: false
 });
 
+    const img = document.createElement('img');
+    img.setAttribute('src', '/images/cesar.png' );
+    img.alt = 'memoji cesar'
+    img.width = 200;
+    img.height = 200;
+    img.loading = 'lazy';
+    img.style.animation = 'slide-in 2s ease-in-out';
+    img.style.width = '100%';
+    img.style.cursor = 'pointer';
    
+   
+
     typed.stop();
     setTimeout( () => typed.start() , 1000);
 
     setTimeout( () => {
-        memoji!.innerHTML = `<img src='/images/peace.png' alt='memoji' width='200px' height='200px' loading='eager' style="animation: slide-in 2s ease-in-out; width: 100%" >`;
+        memoji!.innerHTML = '';
+        memoji?.append(img);
+        
+        // // hover
+        img?.addEventListener('mouseenter', () => {
+            img.setAttribute('src', '/images/guino.png');
+
+        });
+        memoji?.addEventListener('mouseleave', () => {
+            img.setAttribute('src', '/images/cesar.png');
+
+        });
+
+
     },4200 )
 
     setTimeout(() => {
