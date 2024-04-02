@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import Skills from "../components/Skills.astro";
 import { SKILLS } from "../constants/skills";
 import SkillChip from "../components/SkillChip.astro";
 
@@ -42,8 +41,9 @@ import SkillChip from "../components/SkillChip.astro";
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 50px;
-        height: 80vh;
+        padding: 20px 0 40px 0;
     }
     .about{
         display: grid;
@@ -89,10 +89,7 @@ import SkillChip from "../components/SkillChip.astro";
     }
 
     .skills-container{
-        max-width: 600px;
-        width: 100%;
         min-width: 200px;
-        box-sizing: border-box;
         justify-content: center;
         align-content: center;
         display: grid;
@@ -100,13 +97,20 @@ import SkillChip from "../components/SkillChip.astro";
         gap: 10px;
         transition: all 1s ease-in-out;
         opacity: 0;
-        transform: scale(0);
+        transform: scale(0); 
+    
     }
 
 
     @media (min-width: 768px) {
         section{
-            margin-top: 130px;
+            margin: 60px;
+            padding: 50px 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        .skills-container{
+            max-width: 500px;
         }
     }
    

@@ -8,7 +8,7 @@ const {  title } = Astro.props;
 
 <a href="">
     <div>
-        <img src=`/icons/${title.toLocaleLowerCase()}.svg` alt=`${title}` width="24px" height="24px">
+        <img src=`/icons/${title.toLocaleLowerCase()}.svg` alt=`${title}` width="20px" height="20px">
         <p id="chip-title">{title}</p>
     </div>
 </a>
@@ -23,6 +23,7 @@ const {  title } = Astro.props;
         padding: 8px 16px;
         background-color: ;
         max-width: 120px;
+        border-radius: 16px;
     }
     #chip-title{
         font-size: .9rem;
