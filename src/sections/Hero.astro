@@ -127,10 +127,12 @@ import { Image } from "astro:assets";
     @keyframes slide-in {
         from{
             opacity: 0;
+            scale: .8;
         }
         
         to{
             opacity: 1;
+            scale: 1;
         }
         
     }
@@ -149,7 +151,7 @@ import { Image } from "astro:assets";
 
     @keyframes arrow-up {
         0%{
-            transform: translateY(-200px);
+            transform: translateY(-500px);
             opacity: 0;
         }
         100%{
@@ -166,7 +168,7 @@ import { Image } from "astro:assets";
     const arrow = document.querySelector('.arrow');
     const typed = new Typed('h1', {
   stringsElement: '#type-strings',
-  typeSpeed: 80,
+  typeSpeed: 60,
   autoInsertCss: true,
   
 });
@@ -200,7 +202,7 @@ import { Image } from "astro:assets";
 
     typed.stop();
 
-    setTimeout( () => typed.start() , 1000);
+    setTimeout( () => typed.start() , 600);
 
     setTimeout( () => {
         memoji!.innerHTML = '';
@@ -225,7 +227,7 @@ import { Image } from "astro:assets";
         });
 
 
-    },5000 );
+    },4000 );
 
     div.addEventListener('click', () => {
         location.href = '/contacto/';
@@ -233,6 +235,6 @@ import { Image } from "astro:assets";
 
     setTimeout(() => {
         arrow!.innerHTML = `<img src='/icons/arrow-down.svg' alt='arrow down' width='30px' height='30px' loading='lazy' style="animation: arrow-up 1s ease-in-out" >`
-    }, 5000)
+    }, 4300)
 
 </script>
