@@ -7,7 +7,12 @@ import { Image } from "astro:assets";
 <section>
     
         <div class="hero">
-            <h1></h1>
+            <div id="type-strings" hidden>
+                <span><strong>Desarrollador</strong> de Software</span>
+            </div>
+            <div class="text">
+                <h1></h1>
+            </div>
             <div class="memoji">
                 <Image src={'/images/programador.png'} alt={'memoji'} width={200} height={200} loading={'eager'} />
             </div>
@@ -31,6 +36,9 @@ import { Image } from "astro:assets";
         );
         gap: 100px;
     }
+    strong{
+        color: var(--primary);
+    }
 
     .hero{
         display: flex;
@@ -42,10 +50,9 @@ import { Image } from "astro:assets";
     h1{
         max-width: 230px;
         width: 100%;
-        text-align: center;
-        min-height: 100px;
+        /* min-height: 100px; */
         filter: drop-shadow(6px 8px 14px rgba(0, 0, 0, .5));
-
+        display: inline;
     }
     img{
         width: 100%;
@@ -53,19 +60,27 @@ import { Image } from "astro:assets";
     }
     .memoji{
         width: 200px;
-        min-height: 300px;
+        min-height: 305px;
         height: 100%;
     }
     .arrow{
         min-height: 50px;
         animation: pulse 1s linear infinite;
     }
-   
+   .text{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    display: inline;
+    min-height: 100px;
 
+
+   }
+   
     
     @media (min-width: 768px) {
         section{
-            padding: 180px 20px 10px 20px;
+            padding: 220px 20px 10px 20px;
             gap: 60px;
         }
         .hero{
@@ -73,19 +88,29 @@ import { Image } from "astro:assets";
             gap: 80px;
         }
         .memoji{
-            width: 250px;
-            min-height: 420px;
+            width: 320px;
+            min-height: 520px;
         }
         h1{
-            min-width: 400px;
-            max-width: 400px;
+            min-width: 600px;
+            max-width: 600px;
         }
+        
         .arrow:hover{
             filter: opacity(.8);
         }
+        .text{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    display: inline;
+    max-width: 600px;
+    min-width: 600px;
+   }
+
     }
 
-   
+    
 
     @keyframes show-in {
         from{
@@ -140,10 +165,10 @@ import { Image } from "astro:assets";
     const memoji = document.querySelector('.memoji');
     const arrow = document.querySelector('.arrow');
     const typed = new Typed('h1', {
-  strings: ['<span style="color:var(--primary)" >Desarrollador<span> <span style="color:white">Movil y Web<span>',],
+  stringsElement: '#type-strings',
   typeSpeed: 80,
   autoInsertCss: true,
-  showCursor: false
+  
 });
 
     const img = document.createElement('img');
@@ -155,25 +180,32 @@ import { Image } from "astro:assets";
     img.style.animation = 'slide-in 2s ease-in-out';
     img.style.width = '100%';
     img.style.cursor = 'pointer';
+    img.style.transition = 'all .5s ease-in-out';
    
    const btn = document.createElement('button');
+   btn.style.transition = 'all .5s ease-in-out';
    btn.innerText = 'Contacta conmigo';
    btn.classList.add('btn-primary');
+   
+   const div = document.createElement('div');
+   div.style.transition = 'all .5s ease-in-out';
 
-    const div = document.createElement('div');
     div.classList.add('contact');
     div.append(img,btn);
 
 
 
+    const cursor = document.querySelector('.typed-cursor');
+    
 
     typed.stop();
+
     setTimeout( () => typed.start() , 1000);
 
     setTimeout( () => {
         memoji!.innerHTML = '';
         memoji?.append(div);
-        
+        cursor!.innerHTML = '';        
         // // hover
         img?.addEventListener('mouseenter', () => {
             img.setAttribute('src', '/images/guino.png');
@@ -193,14 +225,14 @@ import { Image } from "astro:assets";
         });
 
 
-    },4200 );
+    },5000 );
 
     div.addEventListener('click', () => {
         location.href = '/contacto/';
     })
 
     setTimeout(() => {
-        arrow!.innerHTML = `<img src='/icons/arrow-down.svg' alt='arrow down' width='30px' height='30px' loading='eager' style="animation: arrow-up 1s ease-in-out" >`
-    }, 4300)
+        arrow!.innerHTML = `<img src='/icons/arrow-down.svg' alt='arrow down' width='30px' height='30px' loading='lazy' style="animation: arrow-up 1s ease-in-out" >`
+    }, 5000)
 
 </script>
