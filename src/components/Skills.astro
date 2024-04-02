@@ -1,0 +1,62 @@
+---
+import { SKILLS } from '../constants/skills';
+import SkillChip from './SkillChip.astro';
+
+
+
+---
+
+
+
+    <div class="skills-container">
+        {
+            SKILLS.map( (sk) => {
+                return (
+                <SkillChip 
+            title={sk.name} 
+            
+        />
+            )
+            })
+    
+        }
+    </div>
+
+<style>
+    
+    .skills-container{
+        max-width: 600px;
+        width: 100%;
+        min-width: 200px;
+        box-sizing: border-box;
+        justify-content: center;
+        align-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+        transition: all 1s ease-in-out;
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+ .active{
+    opacity: 1;
+    transform: scale(1);
+ }
+</style>
+<script>
+    const skills = document.querySelector('.skills-container');
+    const show = (entries:any[]) => {
+        const entry = entries[0];
+        if(entry.isIntersecting){
+            setTimeout(() => {
+                skills!.classList.add('active'); 
+            }, 3000);
+
+        }
+    }
+    let observer = new IntersectionObserver(show,{
+        threshold: 0.1,
+    });
+    observer.observe(skills!);
+</script>

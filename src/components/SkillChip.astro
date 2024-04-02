@@ -1,0 +1,38 @@
+---
+interface Props{
+    title: string,
+}
+
+const {  title } = Astro.props;
+---
+
+<a href="">
+    <div>
+        <img src=`/icons/${title.toLocaleLowerCase()}.svg` alt=`${title}` width="24px" height="24px">
+        <p id="chip-title">{title}</p>
+    </div>
+</a>
+<style>
+    div{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid white;
+        border-radius: 2px;
+        padding: 8px 16px;
+        background-color: ;
+        max-width: 120px;
+    }
+    #chip-title{
+        font-size: .9rem;
+    }
+    div:hover{
+        /* border-color: var(--primary); */
+        background-color: var(--bg-color-o);
+    }
+    p::first-letter{
+        text-transform: uppercase;
+    }
+    
+</style>

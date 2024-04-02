@@ -1,0 +1,150 @@
+---
+import { Image } from "astro:assets";
+import Skills from "../components/Skills.astro";
+import { SKILLS } from "../constants/skills";
+import SkillChip from "../components/SkillChip.astro";
+
+
+---
+<section id="about">
+    
+    
+        <div class="about-text" >
+            <h2>SOBRE MI</h2>
+            <p class="about-p">Soy Cesar Tovar, desarrollador de software dedicado a estructurar y desarrollar aplicaciones web y moviles, con la capacidad de proporcionar
+                un excelente rendimiento y optimizacion, ademas de implementacion de SEO para la web.</p>
+        </div>
+        <div id="typed-s" hidden>
+            <p>Skills</p>
+        </div>
+        <div class="skills">
+            <Image src={'/images/programador.png'} alt={'memoji'} width={120} height={120} loading={'lazy'} />
+            <h2 class="skills-title"></h2>
+        </div>
+        <div class="skills-container">
+            {
+                SKILLS.map( (sk) => {
+                    return (
+                    <SkillChip 
+                title={sk.name} 
+                
+            />
+                )
+                })
+        
+            }
+        </div>
+ 
+</section>
+<style>
+    section{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        height: 80vh;
+    }
+    .about{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-auto-rows: auto;
+        gap: 20px;
+    }
+    p{
+        text-align: center;
+    }
+    .about-text{
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        transition: all .8s ease-in-out .5s;
+        opacity: 0 !important;
+        transform: scale(0) !important;
+    }
+
+    .skills{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        min-height: 220px;
+        opacity: 0 !important;
+        transform: scale(0) !important;
+        transition: all 1s ease-in-out;
+    }
+    .skills h2{
+        min-height: 50px;
+    }
+    .active{
+        opacity: 1 !important;
+        transform: scale(1) !important;
+    }
+    .skills-title{
+        display: inline;
+    }
+
+    .skills-container{
+        max-width: 600px;
+        width: 100%;
+        min-width: 200px;
+        box-sizing: border-box;
+        justify-content: center;
+        align-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+        transition: all 1s ease-in-out;
+        opacity: 0;
+        transform: scale(0);
+    }
+
+
+    @media (min-width: 768px) {
+        section{
+            margin-top: 130px;
+        }
+    }
+   
+    
+    
+</style>
+<script>
+    import Typed from 'typed.js';
+    const skills = document.querySelector('.skills');
+    const aboutText = document.querySelector('.about-text');
+    const p = document.querySelector('.about-p')
+    const skillsContainer = document.querySelector('.skills-container');
+    const typed = new Typed('.skills-title', {
+  stringsElement: '#typed-s',
+  typeSpeed: 120,
+  autoInsertCss: true,
+  showCursor: false,
+});
+typed.stop();
+
+
+    const show = (entries:any[]) => {
+        const entry = entries[0];
+        if(entry.isIntersecting){
+            aboutText?.classList.add('active');
+            setTimeout(() => {
+                skills!.classList.add('active'); 
+            }, 1100);
+            setTimeout(() => typed.start(), 2000)
+
+            setTimeout(() => {
+                    skillsContainer!.classList.add('active'); 
+                }, 2800);
+        }
+
+    }
+    let observer = new IntersectionObserver(show,{
+        
+    });
+    observer.observe(p!);
+</script>
