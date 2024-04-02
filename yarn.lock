@@ -556,6 +556,11 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.20.2.tgz#9c907b21e30a52db959ba4f80bb01a0cc403d5cc"
   integrity sha512-N49X4lJX27+l9jbLKSqZ6bKNjzQvHaT8IIFUy+YIqmXQdjYCToGWwOItDrfby14c78aDd5NHQl29xingXfCdLQ==
 
+"@fontsource-variable/inconsolata@^5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/inconsolata/-/inconsolata-5.0.17.tgz#0f55d1ca7bc56ece91e4eef39e32f125541fb796"
+  integrity sha512-6SCRmnxyZI+mFCfOh0lIxNmoq5F03PXNTrmQwLMZZkZ8T57kU2e+s7VuEWy6lruJJECgOb5uc5X3Xl/moGs7xg==
+
 "@fontsource/poppins@^5.0.13":
   version "5.0.13"
   resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-5.0.13.tgz#0522986a405ef45f0ec87f17b164790e450db6ab"

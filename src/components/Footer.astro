@@ -1,14 +1,83 @@
 ---
 
+const pages = [
+    {   
+        name: 'Inicio',
+        url: '/'
+    },
+    {   
+        name: 'Proyectos',
+        url: '/proyectos/'
+    },
+    {   
+        name: 'Contactame',
+        url: '/contacto/'
+    },
+
+];
+
+
 ---
 
 <footer>
-
+   <div class="top">
+    <div class="links">
+        {
+            pages.map( pag =>  (
+                <a href={pag.url}>{pag.name}</a>
+            ))
+        }
+    </div>
+    <div class="social">
+        <a href=""><img src="/icons/github.svg" alt="github"></a>
+        <a href=""><img src="/icons/twitter.svg" alt="twitter"></a>
+        <a href=""><img src="/icons/linkedin.svg" alt="linkedin"></a>
+        <a href=""><img src="/icons/email.svg" alt="email"></a>
+       
+    </div>
+   </div>
+   <hr>
+    <span>&copy; 2024 César Tovar, todos los derechos reservados</span>
 </footer>
 <style>
     footer{
-        height: 200px;
         background-color: var(--bg-color-o);
         border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px;
+        align-items: center;
+    }
+
+    .top{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        
+    }
+    .links{
+        display: flex;
+        gap: 16px;
+    }
+    .social{
+        display: flex;
+        gap: 20px;
+    }
+    .social img{
+        width: 30px;
+    }
+    hr{
+        margin: 20px 0;
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+        .top{
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-around;
+        }
     }
 </style>

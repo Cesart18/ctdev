@@ -1,12 +1,13 @@
 ---
 interface Props{
     title: string,
+    url: string;
 }
 
-const {  title } = Astro.props;
+const {  title, url } = Astro.props;
 ---
 
-<a href="">
+<a href={url} target="_blank">
     <div>
         <img src=`/icons/${title.toLocaleLowerCase()}.svg` alt=`${title}` width="20px" height="20px">
         <p id="chip-title">{title}</p>
