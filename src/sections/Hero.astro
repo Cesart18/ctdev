@@ -177,21 +177,20 @@ import { Image } from "astro:assets";
 </style>
 
 <script>
-    import Typed from 'typed.js';
+import Typed from 'typed.js';
     const memoji = document.querySelector('.memoji');
     const arrow = document.querySelector('.arrow');
     const typed = new Typed('h1', {
   stringsElement: '#type-strings',
   typeSpeed: 60,
   autoInsertCss: true,
-  
 });
 
     const img: HTMLElement  = document.querySelector('.memoji-img') as HTMLElement;
    
    const btn = document.querySelector('button');
 
-    const cursor = document.querySelector('.typed-cursor');
+    const cursor = document.querySelector('.typed-cursor') as HTMLElement;
     
     typed.stop();
 
@@ -206,7 +205,7 @@ import { Image } from "astro:assets";
         img!.style.opacity = '1';
         img!.style.scale = '1';
         img?.setAttribute('src', '/images/cesar.png')
-        cursor!.innerHTML = '';        
+        cursor.style.opacity = '0';
         // // hover
         img?.addEventListener('mouseenter', () => {
             img.setAttribute('src', '/images/guino.png');
