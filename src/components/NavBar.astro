@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import NavBarLinks from "./NavBarLinks.astro";
-
+import { LINKS } from "../consts";
 
 ---
 
@@ -9,9 +9,12 @@ import NavBarLinks from "./NavBarLinks.astro";
     <div class="nav">
         <a href="/"><Image src={'/favicon.svg'} alt={'Logo Ctdev'} width={60} height={60} loading={'eager'} class={'logo'}/></a>
     <div class="navigation">
-        <NavBarLinks href={'/'}>Inicio</NavBarLinks>
-        <NavBarLinks href={'/proyectos/'}>Proyectos</NavBarLinks>
-        <NavBarLinks href={'/contacto/'}>Contacto</NavBarLinks>
+        {
+            LINKS.map( l => (
+            <NavBarLinks href={l.HREF}>{l.TEXT}</NavBarLinks>
+            ))
+        }
+
     </div>
     
     <div class="social">
@@ -24,9 +27,11 @@ import NavBarLinks from "./NavBarLinks.astro";
     
     </div>
     <div class="navigation-m">
-        <NavBarLinks href={'/'}>Inicio</NavBarLinks>
-        <NavBarLinks href={'/proyectos/'}>Proyectos</NavBarLinks>
-        <NavBarLinks href={'/contacto/'}>Contacto</NavBarLinks>
+        {
+            LINKS.map( l => (
+            <NavBarLinks href={l.HREF}>{l.TEXT}</NavBarLinks>
+            ))
+        }
     </div>
 </nav>
 

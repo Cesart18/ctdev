@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { SKILLS } from "../constants/skills";
+import { SKILLS } from "../consts";
 import SkillChip from "../components/SkillChip.astro";
 
 
@@ -25,8 +25,8 @@ import SkillChip from "../components/SkillChip.astro";
                 SKILLS.map( (sk) => {
                     return (
                     <SkillChip 
-                title={sk.name} 
-                url={sk.url}
+                title={sk.NAME} 
+                url={sk.HREF}
             />
                 )
                 })
