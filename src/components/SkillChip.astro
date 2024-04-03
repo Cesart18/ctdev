@@ -1,7 +1,7 @@
 ---
 interface Props{
     title: string,
-    url: string;
+    url?: string;
 }
 
 const {  title, url } = Astro.props;
@@ -30,7 +30,6 @@ const {  title, url } = Astro.props;
         font-size: .9rem;
     }
     div:hover{
-        /* border-color: var(--primary); */
         background-color: var(--bg-color-o);
     }
     p::first-letter{
