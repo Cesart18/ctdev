@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props{
     title: string,
     url?: string;
@@ -7,9 +9,9 @@ interface Props{
 const {  title, url } = Astro.props;
 ---
 
-<a href={url} target="_blank">
+<a href={url} target="_blank" class="chip icon-c">
     <div>
-        <img src=`/icons/${title.toLocaleLowerCase()}.svg` alt=`${title}` width="20px" height="20px">
+        <Icon name={title.toLocaleLowerCase()} />
         <p id="chip-title">{title}</p>
     </div>
 </a>
@@ -30,10 +32,25 @@ const {  title, url } = Astro.props;
         font-size: .9rem;
     }
     div:hover{
-        background-color: var(--bg-color-o);
+        background-color: var(--bg-color-f);
     }
     p::first-letter{
         text-transform: uppercase;
     }
     
 </style>
+<script>
+const chips = document.querySelectorAll('.chip');
+    chips.forEach( chip =>  {
+        chip?.addEventListener('mouseenter', () => {
+
+            chip.classList.remove('icon-c');
+    });
+        chip?.addEventListener('mouseleave', () => {
+
+            chip.classList.add('icon-c');
+    });
+
+    })
+    
+</script>

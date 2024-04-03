@@ -2,12 +2,13 @@
 import { Image } from "astro:assets";
 import NavBarLinks from "./NavBarLinks.astro";
 import { LINKS } from "../consts";
+import { Icon } from "astro-icon/components";
 
 ---
 
 <nav>
     <div class="nav">
-        <a href="/"><Image src={'/favicon.svg'} alt={'Logo Ctdev'} width={60} height={60} loading={'eager'} class={'logo'}/></a>
+        <a href="/" aria-label="logo" ><Icon name={'logo'} class={'logo'} width={60} height={60}/></a>
     <div class="navigation">
         {
             LINKS.map( l => (
@@ -18,8 +19,9 @@ import { LINKS } from "../consts";
     </div>
     
     <div class="social">
-        <a href="https://github.com/Cesart18" target="_blank"><Image src={'/icons/github.svg'} alt={'github'} width={30} height={30} loading={'eager'}/></a>
-        <a href="https://www.linkedin.com/in/cesar-tovar-584111164" target="_blank"><Image src={'/icons/linkedin.svg'} alt={'linkedin'} width={30} height={30} loading={'eager'}/></a>
+        
+        <a aria-label="github" href="https://www.linkedin.com/in/cesar-tovar-584111164" target="_blank"><Icon name={'linkedin'} width={30} height={30} client:load/></a>
+            <a aria-label="github" href="https://github.com/Cesart18" target="_blank"><Icon name={'github'} width={30} height={30} client:load/></a>
     </div>
     
     
@@ -101,11 +103,12 @@ import { LINKS } from "../consts";
         .logo{
             width: 70px;
         }
-        img{
+        svg{
             width: 36px;
+            height: 36px;
             transition: all .3s ease-in-out;
         }
-        img:hover{
+        svg:hover{
             transform: scale(1.1);
             filter: opacity(.8);
         }
