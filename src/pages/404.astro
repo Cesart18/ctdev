@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+
+
+---
+
+<Layout title="">
+    <section>
+        <Image src={'/images/sad.png'} alt={'Memoji triste'} width={200} height={200} loading={'eager'}/>
+        <h2>Página no encontrada</h2>
+        <p>Lo siento la página que estas buscando no se encuentra disponible.</p>
+        <a href="/">Volver al inicio</a>
+    </section>
+</Layout>
+
+<style>
+    section{
+        /* padding: 10px 30px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        gap: 20px;
+        text-align: center;
+    }
+    img{
+        width: 140px;
+        height: auto;
+    }
+    a{
+        color: var(--primary);
+        transition: all .3s ease-in-out;
+    }
+
+    @media (min-width: 768px) {
+        section{
+            height: 80vh;
+        }
+        img{
+            width: 180px;
+        }
+        a:hover{
+            scale: 1.05;
+        }
+
+    }
+</style>
