@@ -14,7 +14,10 @@ import { Image } from "astro:assets";
                 <h1></h1>
             </div>
             <div class="memoji">
-                <Image src={'/images/programador.png'} alt={'memoji'} width={200} height={200} loading={'eager'} />
+                <div class="memo-frame">
+                    <Image src={'/images/programador.png'} alt={'memoji'} width={180} height={200} loading={'eager'} class={'memoji-img'} />
+                </div>
+                <button class="btn-primary">Contacta conmigo</button>
             </div>
         </div>
         <a href="#about" class="arrow">
@@ -50,18 +53,26 @@ import { Image } from "astro:assets";
     h1{
         max-width: 230px;
         width: 100%;
-        /* min-height: 100px; */
         filter: drop-shadow(6px 8px 14px rgba(0, 0, 0, .5));
         display: inline;
     }
     img{
         width: 100%;
         animation: show-in 1s ease-in-out ;
+        transition: all 1s ease-in-out;
+    }
+    .memo-frame{
+        min-height: 230px;
     }
     .memoji{
-        width: 200px;
+        width: 180px;
         min-height: 305px;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
     }
     .arrow{
         min-height: 50px;
@@ -90,6 +101,9 @@ import { Image } from "astro:assets";
         .memoji{
             width: 300px;
             min-height: 520px;
+        }
+        .memo-frame{
+            min-height: 330px;
         }
         h1{
             min-width: 600px;
@@ -173,40 +187,25 @@ import { Image } from "astro:assets";
   
 });
 
-    const img = document.createElement('img');
-    img.setAttribute('src', '/images/cesar.png' );
-    img.alt = 'memoji cesar'
-    img.width = 200;
-    img.height = 200;
-    img.loading = 'lazy';
-    img.style.animation = 'slide-in 2s ease-in-out';
-    img.style.width = '100%';
-    img.style.cursor = 'pointer';
-    img.style.transition = 'all .5s ease-in-out';
+    const img: HTMLElement  = document.querySelector('.memoji-img') as HTMLElement;
    
-   const btn = document.createElement('button');
-   btn.style.transition = 'all .5s ease-in-out';
-   btn.innerHTML = 'Contacta conmigo';
-   btn.classList.add('btn-primary');
-   
-   const div = document.createElement('div');
-   div.style.transition = 'all .5s ease-in-out';
-
-    div.classList.add('contact');
-    div.append(img,btn);
-
-
+   const btn = document.querySelector('button');
 
     const cursor = document.querySelector('.typed-cursor');
     
-
     typed.stop();
 
     setTimeout( () => typed.start() , 600);
 
+    setTimeout(() => {
+        img!.style.opacity = '0';
+        img!.style.scale = '0.8';
+    }, 3500)
+
     setTimeout( () => {
-        memoji!.innerHTML = '';
-        memoji?.append(div);
+        img!.style.opacity = '1';
+        img!.style.scale = '1';
+        img?.setAttribute('src', '/images/cesar.png')
         cursor!.innerHTML = '';        
         // // hover
         img?.addEventListener('mouseenter', () => {
@@ -218,19 +217,19 @@ import { Image } from "astro:assets";
 
         });
         btn?.addEventListener('mouseenter', () => {
-            img.setAttribute('src', '/images/guino.png');
+            img!.setAttribute('src', '/images/guino.png');
 
         });
         btn?.addEventListener('mouseleave', () => {
-            img.setAttribute('src', '/images/cesar.png');
+            img!.setAttribute('src', '/images/cesar.png');
 
         });
 
 
-    },4000 );
+    },4200 );
 
-    div.addEventListener('click', () => {
-        location.href = '/contacto/';
+    btn?.addEventListener('click', () => {
+        location.href = '/contact/'
     })
 
     setTimeout(() => {
