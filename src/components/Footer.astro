@@ -1,23 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-
-
-const pages = [
-    {   
-        name: 'Inicio',
-        url: '/'
-    },
-    {   
-        name: 'Proyectos',
-        url: '/proyectos/'
-    },
-    {   
-        name: 'Contactame',
-        url: '/contacto/'
-    },
-
-];
-
+import { LINKS } from "../consts";
 
 ---
 
@@ -25,8 +8,8 @@ const pages = [
    <div class="top">
     <div class="links">
         {
-            pages.map( pag =>  (
-                <a href={pag.url}>{pag.name}</a>
+            LINKS.map( pag =>  (
+                <a href={pag.HREF}>{pag.TEXT}</a>
             ))
         }
     </div>
