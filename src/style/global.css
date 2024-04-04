@@ -84,7 +84,9 @@ button{
   font-size: 2rem;
   color: var(--bg-color);
 }
-
+.icon-c path{
+  fill: currentColor;
+}
 @media (min-width:1024px) {
     body{
         padding: 20px;
@@ -110,4 +112,7 @@ button{
     .typed-cursor{
       font-size: 5rem;
     }
+    /* .chip:hover .icon-c path{
+        fill: currentColor;
+    } */
 }
