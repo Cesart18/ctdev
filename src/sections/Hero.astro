@@ -11,7 +11,7 @@ import { Image } from "astro:assets";
                 <span><strong>Desarrollador</strong> de Software</span>
             </div>
             <div class="text">
-                <h1></h1>
+                <h1 id="title-h1"></h1>
             </div>
             <div class="memoji">
                 <div class="memo-frame">
@@ -86,6 +86,7 @@ import { Image } from "astro:assets";
 
 
    }
+
    
     
     @media (min-width: 1024px) {
@@ -179,7 +180,7 @@ import { Image } from "astro:assets";
 import Typed from 'typed.js';
     const init = () => {
         const arrow = document.querySelector('.arrow');
-    const typed = new Typed('h1', {
+    const typed = new Typed('#title-h1', {
   stringsElement: '#type-strings',
   typeSpeed: 60,
   autoInsertCss: true,
@@ -203,6 +204,7 @@ import Typed from 'typed.js';
     
     
     setTimeout( () => {
+        cursor.style.visibility = 'hidden';
         img?.setAttribute('src', '/images/cesar.png');
         
         // // hover
@@ -228,7 +230,6 @@ import Typed from 'typed.js';
     setTimeout(() => {
         img!.style.opacity = '1';
         img!.style.scale = '1';
-        cursor.style.opacity = '0';
     }, 4300)
 
     btn?.addEventListener('click', () => {
@@ -238,8 +239,8 @@ import Typed from 'typed.js';
     setTimeout(() => {
         arrow!.innerHTML = `<img src='/icons/arrow-down.svg' alt='arrow down' width='30px' height='30px' loading='eager' style="animation: arrow-up 1s ease-in-out" >`
     }, 4300)
-    document.addEventListener('astro:before-swap', () => {
-  }, { once: true })
+//     document.addEventListener('astro:before-swap', () => {
+//   }, { once: true })
     }
     init();
     document.addEventListener("astro:after-swap", init);
