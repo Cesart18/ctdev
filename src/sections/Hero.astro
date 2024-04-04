@@ -200,9 +200,9 @@ import Typed from 'typed.js';
     }, 3500)
 
     setTimeout( () => {
+        img?.setAttribute('src', '/images/cesar.png')
         img!.style.opacity = '1';
         img!.style.scale = '1';
-        img?.setAttribute('src', '/images/cesar.png')
         cursor.style.opacity = '0';
         // // hover
         img?.addEventListener('mouseenter', () => {
