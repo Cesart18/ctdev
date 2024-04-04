@@ -197,14 +197,14 @@ import Typed from 'typed.js';
 
     setTimeout(() => {
         img!.style.opacity = '0';
-        img!.style.scale = '0.8';
+        img!.style.scale = '.9';
     }, 3500)
-
+    
+    
+    
     setTimeout( () => {
-        img?.setAttribute('src', '/images/cesar.png')
-        img!.style.opacity = '1';
-        img!.style.scale = '1';
-        cursor.style.opacity = '0';
+        img?.setAttribute('src', '/images/cesar.png');
+        
         // // hover
         img?.addEventListener('mouseenter', () => {
             img.setAttribute('src', '/images/guino.png');
@@ -225,6 +225,11 @@ import Typed from 'typed.js';
 
 
     },4200 );
+    setTimeout(() => {
+        img!.style.opacity = '1';
+        img!.style.scale = '1';
+        cursor.style.opacity = '0';
+    }, 4300)
 
     btn?.addEventListener('click', () => {
         location.href = '/contact/'
