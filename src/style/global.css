@@ -29,6 +29,7 @@
     scroll-behavior: smooth;
     color: var(--text-color);
     text-decoration: none;
+    list-style: none;
 }
 p,a,button,span{
   font-family: "Inconsolata Variable", monospace;
@@ -87,6 +88,35 @@ button{
 .icon-c path{
   fill: currentColor;
 }
+
+.tag-chip{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 6px 12px;
+  gap: 6px;
+  border: 1px solid;
+  border-radius: 14px;
+  cursor: pointer;
+  /* max-width: 130px; */
+}
+.tag-chip.select{
+  background-color: var(--bg-color-f);
+  color: var(--primary);
+}
+
+.tag-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-rows: auto;
+  gap: 16px;
+}
+.un-select img{
+  filter: saturate(0);
+}
+.tags-container{
+  width: 100%;
+}
 @media (min-width:1024px) {
     body{
         padding: 20px;
@@ -112,7 +142,7 @@ button{
     .typed-cursor{
       font-size: 5rem;
     }
-    /* .chip:hover .icon-c path{
-        fill: currentColor;
-    } */
+    .tag-chip:hover{
+      background-color: var(--bg-color-f);
+    }
 }
