@@ -46,12 +46,11 @@ import { Icon } from "astro-icon/components";
         padding: 1.4rem 2rem;
         background-color: transparent;
         position: absolute;
-        top: 6px;
+        top: 0;
         left: 0;
         right: 0;
         margin: auto;
         z-index: 2000;
-        max-width: 365px;
         transition: all .5s ease-in-out;
         border-radius: 30px;
     }
@@ -89,10 +88,6 @@ import { Icon } from "astro-icon/components";
     }
 
     @media screen and (min-width: 768px) and (max-width: 1023px){
-        nav{
-            max-width: 680px;
-            top: 16px;
-        }
         .logo{
             width: 64px;
         }
@@ -100,9 +95,8 @@ import { Icon } from "astro-icon/components";
 
     @media (min-width: 1024px) {
         nav{
-            max-width: 768px;
+            max-width: 1023px;
             padding: 1.7rem 1.3rem;
-            top: 16px;
         }
         .logo{
             width: 70px;
