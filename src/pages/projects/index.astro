@@ -1,23 +1,13 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
 import { Projects } from "../../components/Projects";
+import Layout from "../../layouts/Layout.astro";
 
-const projects = ( await getCollection('projects'))
-.sort((a,b) => a.data.date.getTime() - a.data.date.getTime());
-
-const tags = [...new Set(projects.flatMap( project => project.data.tags ))]
-.sort((a,b) => a.localeCompare(b));
 
 ---
 
 <Layout title="">
-    <section>
-        <Projects client:load data={projects} tags={tags}/>
-    </section>
+    <Projects client:load/>
 </Layout>
 <style>
-    section{
-        padding: 100px 20px;
-    }
+    
 </style>
