@@ -1,6 +1,5 @@
-// import type { CollectionEntry } from "astro:content"
 import { useEffect, useState } from "react";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 
 
@@ -10,23 +9,11 @@ const projects = ( await getCollection('projects'))
 const tags = [...new Set(projects.flatMap( project => project.data.tags ))]
 .sort((a,b) => a.localeCompare(b));
 
-interface Project {
-    data: { 
-        tags: string[];
-        title: string;
-        description: string;
-        date: Date; 
-        image?: { url: string; alt: string; } | undefined;  
-        webUrl?: string | undefined; 
-        repository?: string | undefined; 
-      };
-}
-
 
 
 export const useProjects = () => {
     const [filter, setFilter] = useState<Set<string>>(new Set());
-    const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
+    const [filteredProjects, setFilteredProjects] = useState<CollectionEntry<'projects'>[]>([]);
 
     useEffect(() => {
         const newFilteredProjects = projects.filter((entry) => 
