@@ -4,7 +4,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 
 const projects = ( await getCollection('projects'))
-.sort((a,b) => a.data.date.getTime() - a.data.date.getTime());
+.sort((a) => a.data.date.getTime() - a.data.date.getTime());
 
 const tags = [...new Set(projects.flatMap( project => project.data.tags ))]
 .sort((a,b) => a.localeCompare(b));

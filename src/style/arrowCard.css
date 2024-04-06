@@ -57,11 +57,7 @@
     width: 100%;
     box-sizing: border-box;
 }
-.arrow-link{
-    border: 1px solid ;
-    padding: 6px 14px;
-    border-radius: 14px;
-}
+
 
 @media (min-width: 1024px) {
     .arrow-card:hover .arrow-info{
@@ -74,8 +70,6 @@
         content: 'Mas detalles';
         opacity: 1 !important;
     }
-    .arrow-link:hover{
-        border-color: var(--primary);
-    }
+    
 
 }

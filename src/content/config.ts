@@ -10,6 +10,7 @@ const projects = defineCollection({
             url: z.string(),
             alt: z.string()
         }).optional(),
+        draft: z.boolean().optional(),
         tags: z.array(z.string()),
         webUrl: z.string().optional(),
         repository: z.string().optional(),
