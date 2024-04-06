@@ -1,0 +1,116 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CollectionEntry } from 'astro:content'
+import SkillChip from '../components/SkillChip.astro';
+import { SKILLS } from '../consts';
+import { Image } from 'astro:assets';
+import { formatDate } from '../utils/utils';
+
+interface Props {
+    entry: CollectionEntry<'projects'>;
+}
+
+const { entry } = Astro.props;
+const { collection, data } = entry;
+const { title, date, description, tags, image, repository, webUrl } = data;
+
+const tagsLowerCase = tags.map( tag => {
+    return tag.toLocaleLowerCase();
+})
+
+const skills = SKILLS.filter( skill =>  {
+    return tagsLowerCase.includes(skill.NAME.toLocaleLowerCase());
+})
+
+
+---
+<div class="top-layout">
+    <a href={`/${collection}`} class="btn-secondary">
+        <Icon name={'arrow-back'} width={20} height={20}/>
+        <p>Regresar</p>
+    </a>
+    
+    <div class="description">
+        <p>{formatDate(date)}</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
+        <Image src={image!.url} alt={image!.alt} class="top-img" width="300" height="300" loading={'eager'}>
+    </div>
+
+        {
+            (tags)?
+            <div class="skills">
+            <h3>Tecnologias usadas:</h3>
+            {
+                 <ul class="tag-container">
+                        {
+                            skills.map( tag => (
+                                <SkillChip title={tag.NAME} url={tag.HREF}/>
+                            ))
+                        }
+                    </ul>
+            }
+        </div>: null
+        }
+    {
+        (repository)
+        ? <a href={repository} target="_blank" class="btn-secondary">
+            <img src="/icons/link.svg" alt="Ir al repositorio" />
+            <p>Repositorio</p>
+        </a>
+        : null
+
+    }
+
+
+    {
+        (webUrl)
+        ? <a href={webUrl} target="_blank" class="btn-secondary" >
+            <img src="/icons/globe-pointer.svg" alt="Ir al sitio web" />
+            <p>Visitar Web</p>
+        </a>
+        : null
+
+    }
+</div>
+
+<style>
+    h1{
+        font-size: 1.4rem;
+    }
+    
+    .top-layout{
+        display: flex;
+        flex-direction: column;
+        padding: 100px 20px 40px 20px;
+        width: 100%;
+        max-width: 990px;
+        gap: 30px;
+    }
+    .description{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .skills{
+        max-width: 700px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .top-img{
+        width: 100%;
+    }
+    @media (min-width: 1024px) {
+        .top-layout{
+            padding: 130px 40px 10px 40px;
+        }
+        h1{
+            font-size: 2rem;
+        }
+        .top-img{
+            max-width: 500px;
+        }
+    }
+</style>
