@@ -9,48 +9,10 @@ interface Props{
 const {  title, url } = Astro.props;
 ---
 
-<a href={url} target="_blank" class="chip icon-c">
-    <div>
+<a href={url} target="_blank" class="chip">
+
         <Icon name={title.toLocaleLowerCase()} />
         <p id="chip-title">{title}</p>
-    </div>
+
 </a>
-<style>
-    div{
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid white;
-        border-radius: 2px;
-        padding: 8px 16px;
-        background-color: ;
-        max-width: 120px;
-        border-radius: 16px;
-    }
-    #chip-title{
-        font-size: .9rem;
-    }
-    div:hover{
-        background-color: var(--bg-color-f);
-    }
-    p::first-letter{
-        text-transform: uppercase;
-    }
-    
-</style>
-<script>
-const chips = document.querySelectorAll('.chip');
-    chips.forEach( chip =>  {
-        chip?.addEventListener('mouseenter', () => {
 
-            chip.classList.remove('icon-c');
-    });
-        chip?.addEventListener('mouseleave', () => {
-
-            chip.classList.add('icon-c');
-    });
-
-    })
-    
-</script>
