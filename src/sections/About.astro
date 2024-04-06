@@ -18,7 +18,7 @@ import SkillChip from "../components/SkillChip.astro";
         </div>
         <div class="skills">
             <Image src={'/images/programador.png'} alt={'memoji'} width={120} height={120} loading={'lazy'} />
-            <h2 class="skills-title"></h2>
+            <h2 id="skills-title"></h2>
         </div>
         <div class="skills-container">
             {
@@ -120,43 +120,44 @@ import SkillChip from "../components/SkillChip.astro";
 <script>
     import Typed from 'typed.js';
     
-    const init = () => {
+
+        document.addEventListener('astro:page-load', () => {
         const skills = document.querySelector('.skills');
     const aboutText = document.querySelector('.about-text');
     const p = document.querySelector('.about-p')
     const skillsContainer = document.querySelector('.skills-container');
-    const typed = new Typed('.skills-title', {
-  stringsElement: '#typed-s',
-  typeSpeed: 120,
-  autoInsertCss: true,
-  showCursor: false,
-});
-typed.stop();
+    const skillsTitle = document.querySelector('#skills-title')
+    if(skillsTitle){
 
-
-    const show = (entries:any[]) => {
-        const entry = entries[0];
-        if(entry.isIntersecting){
-            aboutText?.classList.add('active');
-            setTimeout(() => {
-                skills!.classList.add('active'); 
-            }, 1100);
-            setTimeout(() => typed.start(), 2000)
-
-            setTimeout(() => {
+        const typed = new Typed(skillsTitle, {
+            stringsElement: '#typed-s',
+            typeSpeed: 120,
+            autoInsertCss: true,
+            showCursor: false,
+        });
+        typed.stop();
+        
+        
+        const show = (entries:any[]) => {
+            const entry = entries[0];
+            if(entry.isIntersecting){
+                aboutText?.classList.add('active');
+                setTimeout(() => {
+                    skills!.classList.add('active'); 
+                }, 1100);
+                setTimeout(() => typed.start(), 2000)
+                
+                setTimeout(() => {
                     skillsContainer!.classList.add('active'); 
                 }, 2800);
+            }
+            
         }
-
+        let observer = new IntersectionObserver(show,{
+            
+        });
+        observer.observe(p!);
     }
-    let observer = new IntersectionObserver(show,{
-        
-    });
-    observer.observe(p!);
-    document.addEventListener('astro:before-swap', () => {
-  }, { once: true })
-    }
-
-    init();
-    document.addEventListener("astro:after-swap", init);
-</script>
+    })
+    
+    </script>

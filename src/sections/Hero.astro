@@ -176,72 +176,73 @@ import { Image } from "astro:assets";
     
 </style>
 
-<script>
-import Typed from 'typed.js';
-    const init = () => {
+<script >
+    import Typed from 'typed.js';
+
+        document.addEventListener('astro:page-load', () => {
         const arrow = document.querySelector('.arrow');
-    const typed = new Typed('#title-h1', {
-  stringsElement: '#type-strings',
-  typeSpeed: 60,
-  autoInsertCss: true,
-});
-
-    const img: HTMLElement  = document.querySelector('.memoji-img') as HTMLElement;
-   
-   const btn = document.querySelector('button');
-
-    const cursor = document.querySelector('.typed-cursor') as HTMLElement;
-    
-    typed.stop();
-
-    setTimeout( () => typed.start() , 600);
-
-    setTimeout(() => {
-        img!.style.opacity = '0';
-        img!.style.scale = '.9';
-    }, 3500)
-    
-    
-    
-    setTimeout( () => {
-        cursor.style.visibility = 'hidden';
-        img?.setAttribute('src', '/images/cesar.png');
+        const titleText = document.querySelector('#title-h1');
+        if(titleText){
+            const typed = new Typed(titleText, {
+          stringsElement: '#type-strings',
+          typeSpeed: 60,
+          autoInsertCss: true,
+        });
         
-        // // hover
-        img?.addEventListener('mouseenter', () => {
-            img.setAttribute('src', '/images/guino.png');
-
-        });
-        img?.addEventListener('mouseleave', () => {
-            img.setAttribute('src', '/images/cesar.png');
-
-        });
-        btn?.addEventListener('mouseenter', () => {
-            img!.setAttribute('src', '/images/guino.png');
-
-        });
-        btn?.addEventListener('mouseleave', () => {
-            img!.setAttribute('src', '/images/cesar.png');
-
-        });
-
-
-    },4200 );
-    setTimeout(() => {
-        img!.style.opacity = '1';
-        img!.style.scale = '1';
-    }, 4300)
-
-    btn?.addEventListener('click', () => {
-        location.href = '/contact/'
-    })
-
-    setTimeout(() => {
-        arrow!.innerHTML = `<img src='/icons/arrow-down.svg' alt='arrow down' width='30px' height='30px' loading='eager' style="animation: arrow-up 1s ease-in-out" >`
-    }, 4300)
-    document.addEventListener('astro:before-swap', () => {
-  }, { once: true })
+        const img: HTMLElement  = document.querySelector('.memoji-img') as HTMLElement;
+        
+        const btn = document.querySelector('button');
+        
+        const cursor = document.querySelector('.typed-cursor') as HTMLElement;
+        
+        typed.stop();
+        
+        setTimeout( () => typed.start() , 600);
+        
+        setTimeout(() => {
+            img!.style.opacity = '0';
+            img!.style.scale = '.9';
+        }, 3500)
+        
+        
+        
+        setTimeout( () => {
+            cursor.style.visibility = 'hidden';
+            img?.setAttribute('src', '/images/cesar.png');
+            
+            // // hover
+            img?.addEventListener('mouseenter', () => {
+                img.setAttribute('src', '/images/guino.png');
+                
+            });
+            img?.addEventListener('mouseleave', () => {
+                img.setAttribute('src', '/images/cesar.png');
+                
+            });
+            btn?.addEventListener('mouseenter', () => {
+                img!.setAttribute('src', '/images/guino.png');
+                
+            });
+            btn?.addEventListener('mouseleave', () => {
+                img!.setAttribute('src', '/images/cesar.png');
+                
+            });
+            
+            
+        },4200 );
+        setTimeout(() => {
+            img!.style.opacity = '1';
+            img!.style.scale = '1';
+        }, 4300)
+        
+        btn?.addEventListener('click', () => {
+            location.href = '/contact/'
+        })
+        
+        setTimeout(() => {
+            arrow!.innerHTML = `<img src='/icons/arrow-down.svg' alt='arrow down' width='30px' height='30px' loading='eager' style="animation: arrow-up 1s ease-in-out" >`
+        }, 4300)
     }
-    init();
-    document.addEventListener("astro:after-swap", init);
+    })
+    
 </script>
