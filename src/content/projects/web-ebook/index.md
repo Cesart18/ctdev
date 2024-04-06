@@ -1,13 +1,13 @@
 ---
 title: "El arte del cuarteto de la felicidad : Ebook"
 description: "Libro"
-date: "Mar 18 2022"
+date: "Feb 18 2024"
+draft: false
 tags:
 - Astro
 - TypeScript
 - Html
 - Css
-
 image: {
     url: '/images/projects/cuartetofelicidad.png',
     alt: 'El arte del cuarteto de la felicidad Web'
