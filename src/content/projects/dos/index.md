@@ -5,6 +5,8 @@ date: "Mar 18 2022"
 tags:
 - Astro
 - TypeScript
+- Flutter
+- React
 - Html
 - Css
 
@@ -13,6 +15,7 @@ image: {
     alt: 'El arte del cuarteto de la felicidad Web'
 }
 webUrl: https://cuartetofelicidad.com/
+repository: https://cuartetofelicidad.com/
 
 ---
 

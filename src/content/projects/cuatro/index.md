@@ -13,6 +13,7 @@ image: {
     alt: 'El arte del cuarteto de la felicidad Web'
 }
 webUrl: https://cuartetofelicidad.com/
+repository: https://cuartetofelicidad.com/
 
 ---
 
