@@ -1,6 +1,5 @@
 import type { CollectionEntry } from "astro:content"
 import '../style/arrowCard.css';
-import Image from "astro/components/Image.astro";
 
 interface Props {
     project: CollectionEntry<'projects'>;
@@ -25,7 +24,7 @@ export const ArrowCard = ({project}:Props) => {
                     {tags.map((tag)=> {
                         return (
                             <li key={tag}>
-                                <div className={"tag-chip"} >
+                                <div className={"chip"} >
                                     <img src={`/icons/${tag.toLocaleLowerCase()}.svg`} alt="" width={20} height={20}/>
                                     <p>{tag}</p>
                                 </div>
@@ -38,9 +37,9 @@ export const ArrowCard = ({project}:Props) => {
 
                 {
                     (repository)
-                    ? <a href={repository} target="_blank" className="arrow-link">
+                    ? <a href={repository} target="_blank" className="btn-secondary">
                         <img src="/icons/link.svg" alt="Ir al repositorio" />
-                        Repositorio
+                        <p>Repositorio</p>
                     </a>
                     : null
 
@@ -49,9 +48,9 @@ export const ArrowCard = ({project}:Props) => {
 
                 {
                     (webUrl)
-                    ? <a href={webUrl} target="_blank" className="arrow-link" >
+                    ? <a href={webUrl} target="_blank" className="btn-secondary" >
                         <img src="/icons/globe-pointer.svg" alt="Ir al sitio web" />
-                        Visitar Web
+                        <p>Visitar Web</p>
                     </a>
                     : null
 

@@ -3,16 +3,7 @@
     display: flex;
     justify-content: center;
   }
-  .tag-chip{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 6px 8px;
-    gap: 6px;
-    border: 1px solid;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+  
   .tag-chip p{
     font-size: .7rem;
   }
@@ -20,20 +11,19 @@
     width: 14px;
     height: auto;
   }
-  .tag-chip.select{
+  .chip.select{
     background-color: var(--bg-color-f);
     color: var(--primary);
+    cursor: pointer;
   }
-  .tag-chip.un-select img{
+  .chip.un-select{
+    cursor: pointer;
+
+  }
+  .chip.un-select img{
     filter: saturate(0);
   }
-  .tag-container{
-    display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(100px, 1fr)  );
-    grid-template-rows: auto;
-    width: 100%;
-    gap: 10px;
-  }
+  
   
   .hero-projects{
     padding: 90px 20px 40px 20px;

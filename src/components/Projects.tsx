@@ -18,7 +18,7 @@ export const Projects = () => {
             {filteredTags.map((tag)=> {
                 return (
                     <li key={tag}>
-                        <div className={`tag-chip ${filter.has(tag)? 'select': 'un-select'}`} onClick={() => toggleTag(tag)}>
+                        <div className={`chip ${filter.has(tag)? 'select': 'un-select'}`} onClick={() => toggleTag(tag)}>
                             <img src={`/icons/${tag.toLocaleLowerCase()}.svg`} alt="" width={20} height={20}/>
                             <p>{tag}</p>
                         </div>
