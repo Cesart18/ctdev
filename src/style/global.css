@@ -127,9 +127,4 @@ button{
     
   }
   
-  @media (min-width: 700px) {
-    
-    .tags-container{
-      max-width: 550px;
-    }
-}
+  

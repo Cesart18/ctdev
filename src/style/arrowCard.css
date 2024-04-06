@@ -1,0 +1,81 @@
+.arrow-card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    clip-path: fill-box;
+    cursor: pointer;
+}
+.arrow-img{
+    position: relative;
+}
+.arrow-img img{
+    width: 100%;
+    margin: 0;
+}
+.arrow-img::before{
+    content: '';
+    position: absolute;
+    bottom: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: auto;
+}
+.arrow-description{
+    height: 50px;
+    background-color: var(--bg-color-f);
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+}
+
+.arrow-info{
+    height: 50px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 30px;
+    padding: 10px 8px;
+    background-color: var(--bg-color-f);
+    transition: all .6s ease-in-out !important;
+}
+.arrow-info .tag-container{
+    min-height: 65px;
+    height: 65px;
+}
+.arrow-links{
+    display: flex;
+    padding: 0 30px;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+.arrow-link{
+    border: 1px solid ;
+    padding: 6px 14px;
+    border-radius: 14px;
+}
+
+@media (min-width: 1024px) {
+    .arrow-card:hover .arrow-info{
+        height: 210px;
+    }
+    .arrow-card:hover .arrow-img img{
+        opacity: .4;
+    }
+    .arrow-card:hover .arrow-img::before{
+        content: 'Mas detalles';
+        opacity: 1 !important;
+    }
+    .arrow-link:hover{
+        border-color: var(--primary);
+    }
+
+}

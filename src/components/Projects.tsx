@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useProjects } from "../hooks/useProjects"
 import { ArrowCard } from "./ArrowCard";
-import type { CollectionEntry } from "astro:content";
+import '../style/projects.css'
 
 
 
