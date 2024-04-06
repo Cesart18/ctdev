@@ -1,8 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
 import SkillChip from "../../components/SkillChip.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
 
 export async function getStaticPaths(){
     const projects = await getCollection('projects');
@@ -17,6 +17,6 @@ const project = Astro.props;
 const { title, description, tags, webUrl } = project.data;
 ---
 
-<Layout title="">
+<MainLayout title="">
 
-</Layout>
+</MainLayout>

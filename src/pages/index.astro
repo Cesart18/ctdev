@@ -1,14 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 import About from '../sections/About.astro';
 import Hero from '../sections/Hero.astro';
 
 ---
 
-<Layout title="Welcome to Astro.">
+<MainLayout title="Welcome to Astro.">
     <Hero/>
     <About/>
-</Layout>
+</MainLayout>
 <script>
     const chips = document.querySelectorAll('.chip');
     chips.forEach( chip =>  {

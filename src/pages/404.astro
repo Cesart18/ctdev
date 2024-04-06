@@ -1,18 +1,18 @@
 ---
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 
 
 ---
 
-<Layout title="">
+<MainLayout title="">
     <section>
         <Image src={'/images/sad.png'} alt={'Memoji triste'} width={200} height={200} loading={'eager'}/>
         <h2>Página no encontrada</h2>
         <p>Lo siento la página que estas buscando no se encuentra disponible.</p>
         <a href="/">Volver al inicio</a>
     </section>
-</Layout>
+</MainLayout>
 
 <style>
     section{
