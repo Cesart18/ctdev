@@ -1,248 +1,196 @@
 ---
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-
-
 ---
 
 <section>
-    
-        <div class="hero">
-            <div id="type-strings" hidden>
-                <span><strong>Desarrollador</strong> de Software</span>
-            </div>
-            <div class="text">
-                <h1 id="title-h1"></h1>
-            </div>
-            <div class="memoji">
-                <div class="memo-frame">
-                    <Image src={'/images/programador.png'} alt={'memoji'} width={180} height={200} loading={'eager'} class={'memoji-img'} />
-                </div>
-                <button class="btn-primary">Contacta conmigo</button>
-            </div>
-        </div>
-        <a href="#about" class="arrow" aria-label="conoce mas sobre mi">
-        </a>
+  <div class="hero">
+    <div id="type-strings" hidden>
+      <span><strong>Desarrollador</strong> de Software</span>
+    </div>
+    <div class="text">
+      <h1 id="title-h1"></h1>
+    </div>
+    <div class="memoji">
+      <div class="memo-frame">
+        <Image
+          src={"/images/cesar.png"}
+          alt={"memoji"}
+          width={180}
+          height={200}
+          loading={"eager"}
+          class={"memoji-img"}
+        />
+      </div>
+      <button class="btn-primary">Contacta conmigo</button>
+    </div>
+  </div>
+  <a href="#about" class="arrow" aria-label="conoce mas sobre mi"><Icon name={'arrow-down'} width={30} height={30} /> </a>
 </section>
 
 <style>
-    section{
-        width: 100%;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 110px 20px 10px 20px;
-        border-radius: 30px;
-        background: linear-gradient(
-            to bottom right, var(--bg-color) ,var(--secondary), var(--primary)  
-        );
-        gap: 100px;
-    }
-    strong{
-        color: var(--primary);
-    }
+  section {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 110px 20px 10px 20px;
+    border-radius: 30px;
+    background: linear-gradient(
+      to bottom right,
+      var(--bg-color),
+      var(--secondary),
+      var(--primary)
+    );
+    gap: 100px;
+  }
+  strong {
+    color: var(--primary);
+  }
 
-    .hero{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 50px;
-    }
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
 
-    h1{
-        max-width: 230px;
-        width: 100%;
-        filter: drop-shadow(6px 8px 14px rgba(0, 0, 0, .5));
-        display: inline;
-    }
-    img{
-        width: 100%;
-        animation: show-in 1s ease-in-out ;
-        transition: all 1s ease-in-out;
-    }
-    .memo-frame{
-        min-height: 230px;
-    }
-    .memoji{
-        width: 180px;
-        min-height: 305px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-    }
-    .arrow{
-        min-height: 50px;
-        animation: pulse 1s linear infinite;
-    }
-   .text{
+  h1 {
+    max-width: 230px;
+    width: 100%;
+    filter: drop-shadow(6px 8px 14px rgba(0, 0, 0, 0.5));
+    display: inline;
+  }
+  img {
+    width: 100%;
+    animation: show-in 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+  .memo-frame {
+    min-height: 230px;
+  }
+  .memoji {
+    width: 180px;
+    min-height: 305px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    cursor: pointer;
+  }
+  .arrow {
+    min-height: 50px;
+    animation: pulse 1s linear infinite;
+    transition: all 1s ease-in-out;
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  .arrow.active{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .text {
     display: flex;
     justify-content: center;
     text-align: center;
     display: inline;
     min-height: 100px;
+  }
 
-
-   }
-
-   
-    
-    @media (min-width: 1024px) {
-        section{
-            padding: 130px 20px 10px 20px;
-            gap: 60px;
-        }
-        .hero{
-            flex-direction: row;
-            gap: 80px;
-        }
-        .memoji{
-            width: 260px;
-            min-height: 520px;
-        }
-        .memo-frame{
-            min-height: 330px;
-        }
-        h1{
-            min-width: 600px;
-            max-width: 600px;
-        }
-        
-        .arrow:hover{
-            filter: opacity(.8);
-        }
-        .text{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    display: inline;
-    max-width: 500px;
-    min-width: 500px;
-   }
-
+  @media (min-width: 1024px) {
+    section {
+      padding: 130px 20px 10px 20px;
+      gap: 60px;
+    }
+    .hero {
+      flex-direction: row;
+      gap: 80px;
+    }
+    .memoji {
+      width: 260px;
+      min-height: 520px;
+    }
+    .memo-frame {
+      min-height: 330px;
+    }
+    h1 {
+      min-width: 600px;
+      max-width: 600px;
     }
 
-    
-
-    @keyframes show-in {
-        from{
-            scale: .9;
-            opacity: 0;
-        }
-        
-        to{
-            scale: 1;
-            opacity: 1;
-        }
-        
+    .arrow:hover {
+      filter: opacity(0.8);
     }
-    @keyframes slide-in {
-        from{
-            opacity: 0;
-            scale: .8;
-        }
-        
-        to{
-            opacity: 1;
-            scale: 1;
-        }
-        
+    .text {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      display: inline;
+      max-width: 500px;
+      min-width: 500px;
     }
-
-    @keyframes pulse {
-        0%{
-            scale: 1;
-        }
-        50%{
-            scale: 1.105;
-        }
-        100%{
-            scale: 1;
-        }
-    }
-
-    @keyframes arrow-up {
-        0%{
-            transform: translateY(-500px);
-            opacity: 0;
-        }
-        100%{
-            transform: translateY(0);
-            opacity: 1;
-        }
-    } 
-    
+  }
 </style>
 
-<script >
-    import Typed from 'typed.js';
+<script>
+  import Typed from "typed.js";
 
-        document.addEventListener('astro:page-load', () => {
-        const arrow = document.querySelector('.arrow');
-        const titleText = document.querySelector('#title-h1');
-        if(titleText){
-            const typed = new Typed(titleText, {
-          stringsElement: '#type-strings',
-          typeSpeed: 60,
-          autoInsertCss: true,
-        });
-        
-        const img: HTMLElement  = document.querySelector('.memoji-img') as HTMLElement;
-        
-        const btn = document.querySelector('button');
-        
-        const cursor = document.querySelector('.typed-cursor') as HTMLElement;
-        
-        typed.stop();
-        
-        setTimeout( () => typed.start() , 600);
-        
-        setTimeout(() => {
-            img!.style.opacity = '0';
-            img!.style.scale = '.9';
-        }, 3500)
-        
-        
-        
-        setTimeout( () => {
-            cursor.style.visibility = 'hidden';
-            img?.setAttribute('src', '/images/cesar.png');
-            
-            // // hover
-            img?.addEventListener('mouseenter', () => {
-                img.setAttribute('src', '/images/guino.png');
-                
-            });
-            img?.addEventListener('mouseleave', () => {
-                img.setAttribute('src', '/images/cesar.png');
-                
-            });
-            btn?.addEventListener('mouseenter', () => {
-                img!.setAttribute('src', '/images/guino.png');
-                
-            });
-            btn?.addEventListener('mouseleave', () => {
-                img!.setAttribute('src', '/images/cesar.png');
-                
-            });
-            
-            
-        },4200 );
-        setTimeout(() => {
-            img!.style.opacity = '1';
-            img!.style.scale = '1';
-        }, 4300)
-        
-        btn?.addEventListener('click', () => {
-            location.href = '/contact/'
-        })
-        
-        setTimeout(() => {
-            arrow!.innerHTML = `<img src='/icons/arrow-down.svg' alt='arrow down' width='30px' height='30px' loading='eager' style="animation: arrow-up 1s ease-in-out" >`
-        }, 4300)
-    }
-    })
+  document.addEventListener("astro:page-load", () => {
+    const arrow = document.querySelector(".arrow");
+    const titleText = document.querySelector("#title-h1");
+    const memoji = document.querySelector('.memoji');
+    if (titleText) {
+      const typed = new Typed(titleText, {
+        stringsElement: "#type-strings",
+        typeSpeed: 60,
+        autoInsertCss: true,
+        onComplete: () => {
+            setTimeout(() => {
+                cursor.style.visibility = 'hidden';
+            }, 1000)
+        }
+      });
+
+      const img: HTMLElement = document.querySelector(
+        ".memoji-img"
+      ) as HTMLElement;
+
+      const btn = document.querySelector("button");
+
+      const cursor = document.querySelector(".typed-cursor") as HTMLElement;
+
+      typed.stop();
+
+      setTimeout(() => typed.start(), 600);
+
     
+
+      setTimeout(() => {
+        // // hover
+        memoji?.addEventListener("mouseenter", () => {
+          img.setAttribute("src", "/images/guino.png");
+        });
+        memoji?.addEventListener("mouseleave", () => {
+          img.setAttribute("src", "/images/cesar.png");
+        });
+        btn?.addEventListener("mouseenter", () => {
+          img!.setAttribute("src", "/images/guino.png");
+        });
+        btn?.addEventListener("mouseleave", () => {
+          img!.setAttribute("src", "/images/cesar.png");
+        });
+      }, 2200);
+
+      btn?.addEventListener("click", () => {
+        location.href = "/contact/";
+      });
+
+      setTimeout(() => {
+        arrow!.classList.add('active');
+      }, 2700);
+    }
+  });
 </script>
