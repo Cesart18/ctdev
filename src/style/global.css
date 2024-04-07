@@ -126,6 +126,10 @@ button{
   gap: 10px;
 }
 
+.active{
+  opacity: 1 !important;
+  scale: 1 !important;
+}
 
 
 @media (min-width:1024px) {
