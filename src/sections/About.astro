@@ -2,6 +2,19 @@
 import { Image } from "astro:assets";
 import { SKILLS } from "../consts";
 import SkillChip from "../components/SkillChip.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { ArrowCard } from '../components/ArrowCard';
+
+const webTags = ['astro','typescript','react'];
+const skills = SKILLS.filter( skill => {
+    return webTags.includes(skill.NAME.toLocaleLowerCase());
+});
+
+const projects:CollectionEntry<'projects'>[] = ( await getCollection('projects'))
+.sort((a,b) => b.data.date.getTime() - a.data.date.getTime())
+.slice(0,3);
+
 
 
 ---
@@ -14,15 +27,15 @@ import SkillChip from "../components/SkillChip.astro";
                 un excelente rendimiento y optimizacion, ademas de implementacion de SEO para la web.</p>
         </div>
         <div id="typed-s" hidden>
-            <p>Skills</p>
+            <p>Pagina web creada con:</p>
         </div>
         <div class="skills">
             <Image src={'/images/programador.png'} alt={'memoji'} width={120} height={120} loading={'eager'} />
-            <h2 id="skills-title"></h2>
         </div>
+        <h3 id="skills-title"></h3>
         <div class="skills-container">
             {
-                SKILLS.map( (sk) => {
+                skills.map( (sk) => {
                     return (
                     <SkillChip 
                 title={sk.NAME} 
@@ -33,7 +46,15 @@ import SkillChip from "../components/SkillChip.astro";
         
             }
         </div>
- 
+        <div class="projects-container">
+            <h3>Ultimos proyectos</h3>
+            {
+                projects.map( project => {
+                    return <ArrowCard client:load project={project}/>
+                })
+            }
+            <a href={`/${projects[0].collection}/`} class="btn-secondary">Todos los proyectos</a>
+        </div>
 </section>
 <style>
     section{
@@ -42,7 +63,7 @@ import SkillChip from "../components/SkillChip.astro";
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 50px;
+        gap: 20px;
         padding: 20px 0 40px 0;
     }
     .about{
@@ -71,13 +92,13 @@ import SkillChip from "../components/SkillChip.astro";
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 30px;
+        gap: 20px;
         min-height: 220px;
         opacity: 0 !important;
         transform: scale(0) !important;
         transition: all 1s ease-in-out;
     }
-    .skills h2{
+    .skills h3{
         min-height: 50px;
     }
     .active{
@@ -101,7 +122,16 @@ import SkillChip from "../components/SkillChip.astro";
     
     }
 
-
+    .projects-container{
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        gap: 30px;
+        align-items: center;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 1s ease-in-out;
+    }
     @media (min-width: 768px) {
         section{
             margin: 60px;
@@ -127,11 +157,12 @@ import SkillChip from "../components/SkillChip.astro";
     const p = document.querySelector('.about-p')
     const skillsContainer = document.querySelector('.skills-container');
     const skillsTitle = document.querySelector('#skills-title')
+    const projectsContainer = document.querySelector('.projects-container');
     if(skillsTitle){
 
         const typed = new Typed(skillsTitle, {
             stringsElement: '#typed-s',
-            typeSpeed: 120,
+            typeSpeed: 60,
             autoInsertCss: true,
             showCursor: false,
         });
@@ -145,11 +176,14 @@ import SkillChip from "../components/SkillChip.astro";
                 setTimeout(() => {
                     skills!.classList.add('active'); 
                 }, 1100);
-                setTimeout(() => typed.start(), 2000)
+                setTimeout(() => typed.start(), 1600)
                 
                 setTimeout(() => {
                     skillsContainer!.classList.add('active'); 
-                }, 2800);
+                }, 3100);
+                setTimeout(() => {
+                    projectsContainer!.classList.add('active'); 
+                }, 3700);
             }
             
         }

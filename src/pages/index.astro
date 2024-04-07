@@ -9,17 +9,3 @@ import Hero from '../sections/Hero.astro';
     <Hero/>
     <About/>
 </MainLayout>
-<script>
-    const chips = document.querySelectorAll('.chip');
-    chips.forEach( chip =>  {
-        chip?.addEventListener('mouseenter', () => {
-
-            chip.classList.remove('icon-c');
-    });
-        chip?.addEventListener('mouseleave', () => {
-
-            chip.classList.add('icon-c');
-    });
-
-    })
-</script>
