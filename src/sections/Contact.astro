@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+
+
+
+---
+
+
+<section id="contact">
+    <h2>Contacta conmigo</h2>
+    <Image src={'/images/greet.png'} alt={'Memoji saludando'} width={200} height={200} loading={'lazy'}/>
+    <div class="form">
+        <form name="contact" method="POST" data-netlify="true"  action="/contact">
+    
+			<label for="name">Nombre completo:</label>
+            <input type="text" name="name" id="name" required  placeholder="Nombre y apellido">
+
+			<label for="email">Correo electronico:</label>
+            <input type="email" name="email" id="email" required  placeholder="ejemplo@ejemplo.com">
+
+			<label for="tel">Teléfono:</label>
+            <input type="tel" name="tel" id="tel" required  placeholder="123-456789">
+
+
+			<label for="message">Mensaje:</label>
+            <textarea name="message" id="message" required rows="6" cols="12" placeholder="Mensaje"></textarea>
+
+			<input type="submit" value="Enviar" class="buy">
+			<input type="hidden" name="form-name" value="contact">
+        </form>
+    
+    </div>
+</section>
+
+<style>
+    section{
+        padding: 20px 10px 60px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    h2{
+        margin: 10px 0 40px 0;
+    }
+    .form{
+		width: 100%;
+		max-width: 500px;
+        min-width: 250px;
+		display: flex;
+		justify-content: center;
+		border: 2px solid;
+		padding: 30px 20px;
+		border-radius: 20px;
+		background-color: var(--bg-color);
+		box-sizing: border-box;
+		z-index: 10;
+	}
+	form{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		padding: 10px 20px;
+		gap: 10px;
+	}
+	input{
+		height: 30px;
+
+		padding: 4px 10px;
+	}
+	textarea{
+
+		padding: 10px;
+	}
+</style>
