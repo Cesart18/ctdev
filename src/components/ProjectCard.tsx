@@ -6,7 +6,7 @@ interface Props {
 }
 
 
-export const ArrowCard = ({project}:Props) => {
+export const ProjectCard = ({project}:Props) => {
     const { data, slug, collection } = project;
     const { tags, title, image, repository, webUrl } = data;
   return (
