@@ -29,7 +29,7 @@ const next = items[(index + 1) % items.length]
         <Icon name="arrow-back"/>
         <div class="btn-text">
             <p>ANTERIOR</p>
-            <p>{next.data.title}</p>
+            <p>{prev.data.title}</p>
         </div>
         </a>
         <a href={`/${next.collection}/${next.slug}`} class="btn-secondary">
@@ -49,6 +49,7 @@ const next = items[(index + 1) % items.length]
         display: flex;
         flex-direction: column;
         gap: 40px;
+        width: 100%;
     }
     .actions{
         display: flex;
@@ -69,7 +70,8 @@ const next = items[(index + 1) % items.length]
     }
     @media (min-width: 1024px) {
         .bottom-layout{
-            padding: 50px 0;
+            padding: 50px 20px;
+            box-sizing: border-box;
         }
         .actions p{
         font-size: 1rem;

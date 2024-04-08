@@ -125,7 +125,9 @@ button{
   width: 100%;
   gap: 10px;
 }
-
+.tags-container .tag-container{
+  grid-template-columns: repeat( auto-fit, minmax(110px, 1fr)  );
+}
 
 
 
