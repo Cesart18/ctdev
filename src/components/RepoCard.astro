@@ -1,0 +1,46 @@
+---
+import type { Repository } from "../domain/entities/Repository"
+import { formatDate } from "../utils/utils";
+
+
+    interface Props{
+        repo: Repository
+    }
+
+    const { repo } = Astro.props;
+    const {  name, createdAt, description, homepage, htmlUrl } = repo.data;
+
+const date = new Date(createdAt);
+
+---
+<div>
+    <h3>{name}</h3>
+    <p>{formatDate(date)}</p>
+    {
+        (description) ?
+        <p>{description}</p>
+        : null
+        
+    }
+    {
+        (htmlUrl)
+        ? <a href={htmlUrl} target="_blank" class="btn-secondary">
+            <img src="/icons/link.svg" alt="Ir al repositorio" />
+            <p>Ver Repositorio</p>
+        </a>
+        : null
+
+    }
+
+</div>
+<style>
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border: 1px solid;
+        padding: 20px;
+        width: 100%;
+        border-radius: 4px;
+    }
+</style>

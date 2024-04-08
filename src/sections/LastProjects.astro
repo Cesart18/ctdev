@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import { ArrowCard } from "../components/ArrowCard";
 import { SKILLS } from "../consts";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import SkillChip from "../components/SkillChip.astro";
+import { ProjectCard } from "../components/ProjectCard";
 
 const webTags = ["astro", "typescript", "react"];
 const skills = SKILLS.filter((skill) => {
@@ -42,7 +42,7 @@ const projects: CollectionEntry<"projects">[] = (
     <h3>Ultimos proyectos</h3>
     {
       projects.map((project) => {
-        return <ArrowCard client:load project={project} />;
+        return <ProjectCard client:load project={project} />;
       })
     }
     <a href={`/${projects[0].collection}/`} class="btn-secondary"

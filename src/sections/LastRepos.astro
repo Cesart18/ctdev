@@ -1,0 +1,39 @@
+---
+import RepoCard from "../components/RepoCard.astro";
+import { repositories } from "../domain/api/github"
+
+
+
+const lastRepo = repositories.slice(0,3);
+---
+
+<section>
+    <h3>ULTIMOS REPOSITORIOS</h3>
+    <div class="repo-container">
+        {
+            lastRepo.map( repo => (
+                <RepoCard repo={repo}/>
+            ))
+        }
+    </div>
+    <a href="https://github.com/cesart18/" class="btn-secondary">Todos los repositorios</a>
+    <hr>
+</section>
+<style>
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    hr{
+        width: 100%;
+        max-width: 560px;
+    }
+    .repo-container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+</style>
