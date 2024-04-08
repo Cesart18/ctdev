@@ -7,7 +7,7 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface Projects {
+export interface Repository {
     id:                          number;
     node_id:                     string;
     name:                        string;
@@ -130,11 +130,11 @@ export interface Permissions {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toProjects(json: string): Projects[] {
+    public static toProjects(json: string): Repository[] {
         return cast(JSON.parse(json), a(r("Projects")));
     }
 
-    public static projectsToJson(value: Projects[]): string {
+    public static projectsToJson(value: Repository[]): string {
         return JSON.stringify(uncast(value, a(r("Projects"))), null, 2);
     }
 }
