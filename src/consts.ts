@@ -11,7 +11,7 @@ export const LINKS: Links[] = [
     },
     {
         TEXT: 'Contacto',
-        HREF: '/contact/'
+        HREF: '/#contact'
     },
 ]
 
