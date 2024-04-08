@@ -1,5 +1,5 @@
 import type { CollectionEntry } from "astro:content"
-import '../style/arrowCard.css';
+import '../style/projectCard.css';
 
 interface Props {
     project: CollectionEntry<'projects'>;

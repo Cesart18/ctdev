@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useProjects } from "../hooks/useProjects"
-import { ArrowCard } from "./ArrowCard";
 import '../style/projects.css'
+import { ProjectCard } from "./ProjectCard";
 
 
 
@@ -39,7 +39,7 @@ export const Projects = () => {
         <div className="projects-container">
             {
                 filteredProjects.map( (project) => (
-                    <ArrowCard key={project.id} project={project}/>
+                    <ProjectCard key={project.id} project={project}/>
                 ))
             }
         </div>
