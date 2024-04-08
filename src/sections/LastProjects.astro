@@ -1,110 +1,107 @@
 ---
-import { Image } from "astro:assets"
-import { ArrowCard } from "../components/ArrowCard"
+import { Image } from "astro:assets";
+import { ArrowCard } from "../components/ArrowCard";
 import { SKILLS } from "../consts";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import SkillChip from "../components/SkillChip.astro";
 
-const webTags = ['astro','typescript','react'];
-const skills = SKILLS.filter( skill => {
-    return webTags.includes(skill.NAME.toLocaleLowerCase());
+const webTags = ["astro", "typescript", "react"];
+const skills = SKILLS.filter((skill) => {
+  return webTags.includes(skill.NAME.toLocaleLowerCase());
 });
 
-const projects:CollectionEntry<'projects'>[] = ( await getCollection('projects'))
-.sort((a,b) => b.data.date.getTime() - a.data.date.getTime())
-.slice(0,3);
+const projects: CollectionEntry<"projects">[] = (
+  await getCollection("projects")
+)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 
 <section>
-    <Image src={'/images/programador.png'} alt={'memoji'} width={120} height={120} loading={'lazy'} />
-    
-    <h3>Pagina web creada con:</h3>
+  <Image
+    src={"/images/programador.png"}
+    alt={"memoji"}
+    width={120}
+    height={120}
+    loading={"lazy"}
+    class={'program'}
+  />
 
-    <div class="skills-container">
-        {
-            skills.map( (sk) => {
-                return (
-                <SkillChip 
-            title={sk.NAME} 
-            url={sk.HREF}
-        />
-            )
-            })
-    
-        }
-    </div>
-    <div class="projects-container">
-        <hr>
-        <h3>Ultimos proyectos</h3>
-        {
-            projects.map( project => {
-                return <ArrowCard client:load project={project}/>
-            })
-        }
-        <a href={`/${projects[0].collection}/`} class="btn-secondary">Todos los proyectos</a>
-        <hr>
-    </div>
+  <h3>Pagina web creada con:</h3>
+
+  <div class="skills-container">
+    {
+      skills.map((sk) => {
+        return <SkillChip title={sk.NAME} url={sk.HREF} />;
+      })
+    }
+  </div>
+  <hr />
+  <div class="projects-container">
+    <h3>Ultimos proyectos</h3>
+    {
+      projects.map((project) => {
+        return <ArrowCard client:load project={project} />;
+      })
+    }
+    <a href={`/${projects[0].collection}/`} class="btn-secondary"
+      >Todos los proyectos</a
+    >
+  </div>
+  <hr />
 </section>
+
 <style>
-    section{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 60px;
-        gap: 30px;
-    }
-.skills{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        min-height: 220px;
-        transition: all 1s ease-in-out;
-    }
-    .skills h3{
-        min-height: 50px;
-    }
-    
-    .skills-title{
-        display: inline;
-    }
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    gap: 30px;
+  }
 
-    .skills-container{
-        min-width: 200px;
-        justify-content: center;
-        align-content: center;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 10px;
-        transition: all 1s ease-in-out;
-    
-    }
-    hr{
-        width: 100%;
-        margin: 30px 0;
-    }
+  .skills-title {
+    display: inline;
+  }
 
-    .projects-container{
-        display: flex;
-        flex-direction: column;
-        max-width: 500px;
-        gap: 30px;
-        align-items: center;
-        transition: all 1s ease-in-out;
+  .skills-container {
+    min-width: 200px;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    transition: all 1s ease-in-out;
+
+  }
+
+
+  hr {
+    width: 100%;
+    margin: 30px 0;
+    max-width: 560px;
+  }
+
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 30px;
+    align-items: center;
+    transition: all 1s ease-in-out;
+
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .skills-container {
+      max-width: 500px;
     }
-    @media (min-width: 768px) and (max-width: 1023px) {
-        
-        .skills-container{
-            max-width: 500px;
-        }
+  }
+  @media (min-width: 1024px) {
+    .skills-container {
+      max-width: 500px;
     }
-    @media (min-width: 1024px) {
-        
-        .skills-container{
-            max-width: 500px;
-        }
-    }
+  }
 </style>

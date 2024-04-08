@@ -1,15 +1,15 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+
+
 ---
 
 <section>
   <div class="hero">
-    <div id="type-strings" hidden>
-      <span><strong>Desarrollador</strong> de Software</span>
-    </div>
+ 
     <div class="text">
-      <h1 id="title-h1"></h1>
+      <h1><strong>Desarrollador</strong> de Software</h1>
     </div>
     <div class="memoji">
       <div class="memo-frame">
@@ -25,7 +25,9 @@ import { Image } from "astro:assets";
       <button class="btn-primary">Contacta conmigo</button>
     </div>
   </div>
-  <a href="#about" class="arrow" aria-label="conoce mas sobre mi"><Icon name={'arrow-down'} width={30} height={30} /> </a>
+  <a href="#about" class="arrow" aria-label="conoce mas sobre mi"
+    ><Icon name={"arrow-down"} width={30} height={30} />
+  </a>
 </section>
 
 <style>
@@ -61,6 +63,7 @@ import { Image } from "astro:assets";
     width: 100%;
     filter: drop-shadow(6px 8px 14px rgba(0, 0, 0, 0.5));
     display: inline;
+    animation: show-in 1.5s ease-in-out;
   }
   img {
     width: 100%;
@@ -88,7 +91,7 @@ import { Image } from "astro:assets";
     transform: translateY(-200px);
     opacity: 0;
   }
-  .arrow.active{
+  .arrow.active {
     opacity: 1;
     transform: translateY(0);
   }
@@ -136,61 +139,37 @@ import { Image } from "astro:assets";
 </style>
 
 <script>
-  import Typed from "typed.js";
-
   document.addEventListener("astro:page-load", () => {
     const arrow = document.querySelector(".arrow");
     const titleText = document.querySelector("#title-h1");
-    const memoji = document.querySelector('.memoji');
-    if (titleText) {
-      const typed = new Typed(titleText, {
-        stringsElement: "#type-strings",
-        typeSpeed: 60,
-        autoInsertCss: true,
-        onComplete: () => {
-            setTimeout(() => {
-                cursor.style.visibility = 'hidden';
-            }, 1000)
-        }
-      });
+    const memoji = document.querySelector(".memoji");
 
-      const img: HTMLElement = document.querySelector(
-        ".memoji-img"
-      ) as HTMLElement;
+    const img: HTMLElement = document.querySelector(
+      ".memoji-img"
+    ) as HTMLElement;
 
-      const btn = document.querySelector("button");
+    const btn = document.querySelector("button");
 
-      const cursor = document.querySelector(".typed-cursor") as HTMLElement;
+    // // hover
+    memoji?.addEventListener("mouseenter", () => {
+      img.setAttribute("src", "/images/guino.png");
+    });
+    memoji?.addEventListener("mouseleave", () => {
+      img.setAttribute("src", "/images/cesar.png");
+    });
+    btn?.addEventListener("mouseenter", () => {
+      img!.setAttribute("src", "/images/guino.png");
+    });
+    btn?.addEventListener("mouseleave", () => {
+      img!.setAttribute("src", "/images/cesar.png");
+    });
 
-      typed.stop();
+    btn?.addEventListener("click", () => {
+      location.href = "/#contact/";
+    });
 
-      setTimeout(() => typed.start(), 600);
-
-    
-
-      setTimeout(() => {
-        // // hover
-        memoji?.addEventListener("mouseenter", () => {
-          img.setAttribute("src", "/images/guino.png");
-        });
-        memoji?.addEventListener("mouseleave", () => {
-          img.setAttribute("src", "/images/cesar.png");
-        });
-        btn?.addEventListener("mouseenter", () => {
-          img!.setAttribute("src", "/images/guino.png");
-        });
-        btn?.addEventListener("mouseleave", () => {
-          img!.setAttribute("src", "/images/cesar.png");
-        });
-      }, 2200);
-
-      btn?.addEventListener("click", () => {
-        location.href = "/contact/";
-      });
-
-      setTimeout(() => {
-        arrow!.classList.add('active');
-      }, 2700);
-    }
+    setTimeout(() => {
+      arrow!.classList.add("active");
+    }, 400);
   });
 </script>

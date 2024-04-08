@@ -4,7 +4,7 @@
 
 <section id="about">
   <div class="about-text">
-    <h2 >SOBRE MI</h2>
+    <h2>SOBRE MI</h2>
     <p>
       Soy Cesar Tovar, desarrollador de software dedicado a estructurar y
       desarrollar aplicaciones web y moviles, con la capacidad de proporcionar
@@ -30,8 +30,6 @@
     gap: 20px;
   }
   h2,p{
-    opacity: 0;
-    scale: 0;
     text-align: center;
     transition: all 1s ease-in-out;
   }
@@ -56,24 +54,3 @@
     }
   }
 </style>
-<script>
-    const h2 = document.querySelector('h2');
-    const p = document.querySelector('p');
-    document.addEventListener('astro:page-load', () => {
-        const show = (entries:IntersectionObserverEntry[]) => {
-            const entry = entries[0];
-            if(entry.isIntersecting){
-                h2?.classList.add('active');
-                setTimeout(() => {
-                    p?.classList.add('active');
-                }, 500);
-            }
-        }
-
-        const observer = new IntersectionObserver(show, {
-
-        });
-        observer.observe(p!);
-    });
- </script>
-
