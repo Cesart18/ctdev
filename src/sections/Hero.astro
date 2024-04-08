@@ -142,7 +142,6 @@ import { Image } from "astro:assets";
 <script>
   document.addEventListener("astro:page-load", () => {
     const arrow = document.querySelector(".arrow");
-    const titleText = document.querySelector("#title-h1");
     const memoji = document.querySelector(".memoji");
 
     const img: HTMLElement = document.querySelector(
@@ -152,25 +151,33 @@ import { Image } from "astro:assets";
     const btn = document.querySelector("button");
 
     // // hover
-    memoji?.addEventListener("mouseenter", () => {
-      img.setAttribute("src", "/images/guino.png");
-    });
-    memoji?.addEventListener("mouseleave", () => {
-      img.setAttribute("src", "/images/cesar.png");
-    });
-    btn?.addEventListener("mouseenter", () => {
-      img!.setAttribute("src", "/images/guino.png");
-    });
-    btn?.addEventListener("mouseleave", () => {
-      img!.setAttribute("src", "/images/cesar.png");
-    });
+    if(memoji){
 
-    btn?.addEventListener("click", () => {
-      location.href = "/#contact/";
-    });
+      memoji?.addEventListener("mouseenter", () => {
+        img.setAttribute("src", "/images/guino.png");
+      });
+      memoji?.addEventListener("mouseleave", () => {
+        img.setAttribute("src", "/images/cesar.png");
+      });
+    }
+    if(btn){
 
-    setTimeout(() => {
-      arrow!.classList.add("active");
-    }, 400);
+      btn?.addEventListener("mouseenter", () => {
+        img!.setAttribute("src", "/images/guino.png");
+      });
+      btn?.addEventListener("mouseleave", () => {
+        img!.setAttribute("src", "/images/cesar.png");
+      });
+      btn?.addEventListener("click", () => {
+        location.href = "/#contact/";
+      });
+    }
+
+    if(arrow){
+
+      setTimeout(() => {
+        arrow!.classList.add("active");
+      }, 400);
+    }
   });
 </script>
