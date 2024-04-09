@@ -10,7 +10,7 @@ import { Image } from "astro:assets";
     <h2>Contacta conmigo</h2>
     <Image src={'/images/greet.webp'} alt={'Memoji saludando'} width={200} height={200} loading={'lazy'}/>
     <div class="form">
-        <form name="contact" method="POST" data-netlify="true"  action="/contact">
+        <form name="contact" method="POST" data-netlify="true"  action="/">
     
 			<label for="name">Nombre completo:</label>
             <input type="text" name="name" id="name" required  placeholder="Nombre y apellido">
@@ -78,6 +78,7 @@ import { Image } from "astro:assets";
 		background-color: var(--primary);
 		color: var(--bg-color);
 		margin-top: 10px;
+		cursor: pointer;
 	}
 	
 </style>

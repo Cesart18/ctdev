@@ -12,10 +12,9 @@ export const ProjectCard = ({project}:Props) => {
   return (
     <div className="arrow-card" >
         <a href={`/${collection}/${slug}/`} className="arrow-img">
-        <img src={image?.url} alt={image?.alt} width={300} height={320} loading="eager" />
+        <img src={image?.url} alt={image?.alt} width={300} height={180} loading="eager" />
         </a>
         <div className="arrow-description">
-
 
             <div className="arrow-info">
                 <h3>{title}</h3>
