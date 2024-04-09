@@ -12,7 +12,7 @@ interface Props {
 
 const { entry } = Astro.props;
 const { collection, data } = entry;
-const { title, date, description, tags, image, repository, webUrl } = data;
+const { title, date, description, tags, image, repository, webUrl, utils } = data;
 
 const tagsLowerCase = tags.map( tag => {
     return tag.toLocaleLowerCase();
@@ -51,6 +51,18 @@ const skills = SKILLS.filter( skill =>  {
                     </ul>
             }
         </div>: null
+        }
+        {
+            (utils)?
+            <h3>Herramientas usadas:</h3>
+            <div class="utils-container">
+                {
+                    utils.map( util => (
+                        <p class="util">{util}</p>
+                    ))
+                }
+                </div>
+                : null
         }
     {
         (repository)
@@ -101,6 +113,19 @@ const skills = SKILLS.filter( skill =>  {
     }
     .top-img{
         width: 100%;
+    }
+    .utils-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-rows: auto;
+        gap: 10px;
+    }
+    .util{
+        padding: 8px 12px;
+        border: 1px solid;
+        border-radius: 4px;
+        text-align: center;
+
     }
     @media (min-width: 1024px) {
         .top-layout{

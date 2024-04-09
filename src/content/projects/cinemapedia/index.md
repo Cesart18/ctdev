@@ -1,11 +1,15 @@
 ---
 title: "Cinemapedia"
-description: "Aplicacion movil para encontrar peliculas"
+description: "Aplicacion móvil para encontrar peliculas"
 date: "Dec 18 2023"
 draft: false
 tags:
 - Flutter
 - Dart
+utils:
+- Riverpod
+- Git
+
 image: {
     url: '/images/projects/cinemapedia.webp',
     alt: 'Cinemapedia'

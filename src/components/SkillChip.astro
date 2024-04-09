@@ -11,7 +11,11 @@ const {  title, url } = Astro.props;
 
 <a href={url} target="_blank" class="chip">
 
-        <Icon name={title.toLocaleLowerCase()} />
+        {
+            (url)?
+            <Icon name={title.toLocaleLowerCase()} />
+            : null
+        }
         <p id="chip-title">{title}</p>
 
 </a>
