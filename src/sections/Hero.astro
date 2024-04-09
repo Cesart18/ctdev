@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import { fade } from "astro:transitions";
 
 
 
@@ -14,14 +15,14 @@ import { Image } from "astro:assets";
     </div>
     <div class="memoji">
       <div class="memo-frame">
-        <Image
+          <Image
           src={"/images/cesar.webp"}
           alt={"memoji"}
           width={180}
           height={200}
           loading={"eager"}
           class={"memoji-img"}
-        />
+          />
       </div>
       <button class="btn-primary">Contacta conmigo</button>
     </div>
