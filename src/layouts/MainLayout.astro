@@ -13,7 +13,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <Seo description={description} title={title} />
   </head>
@@ -22,7 +22,7 @@ const { title, description } = Astro.props;
     <main>
       <slot />
     </main>
-    <ViewTransitions />
+    <ViewTransitions transition:animate={'slide'}  />
     <Footer />
   </body>
 </html>

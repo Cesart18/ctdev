@@ -1,6 +1,6 @@
 ---
 title: "Cinemapedia"
-description: "Aplicacion móvil para encontrar peliculas"
+description: "Aplicación móvil para encontrar peliculas"
 date: "Dec 18 2023"
 draft: false
 tags:

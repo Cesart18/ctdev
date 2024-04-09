@@ -34,7 +34,7 @@ const skills = SKILLS.filter( skill =>  {
         <p>{formatDate(date)}</p>
         <h1>{title}</h1>
         <p>{description}</p>
-        <Image src={image!.url} alt={image!.alt} class="top-img" width="300" height="300" loading={'eager'}>
+        <Image transition:name='entrada' src={image!.url} alt={image!.alt} class="top-img" width="300" height="180" loading={'eager'}>
     </div>
 
         {
@@ -54,7 +54,7 @@ const skills = SKILLS.filter( skill =>  {
         }
         {
             (utils)?
-            <h3>Herramientas usadas:</h3>
+            <h3>Extras:</h3>
             <div class="utils-container">
                 {
                     utils.map( util => (

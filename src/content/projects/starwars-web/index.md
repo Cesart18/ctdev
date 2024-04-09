@@ -1,6 +1,6 @@
 ---
 title: "Enciclopedia de starwars"
-description: "Enciclopedia star wars"
+description: "Enciclopedia de starwars"
 date: "Jan 18 2024"
 draft: false
 tags:
@@ -8,6 +8,8 @@ tags:
 - JavaScript
 - Css
 - React
+utils:
+- Git
 image: {
     url: '/images/projects/starwars.webp',
     alt: 'El arte del cuarteto de la felicidad Web'

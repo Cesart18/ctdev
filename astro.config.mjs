@@ -9,7 +9,5 @@ export default defineConfig({
   site: 'https://ctdev.online/',
   integrations: [icon(), react({
     experimentalReactChildren: true
-  }), sitemap({
-    
-  })]
+  }), sitemap()],
 });

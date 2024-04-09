@@ -83,6 +83,8 @@ button{
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Inconsolata Variable', Courier, monospace;
+  cursor: pointer;
 }
 .btn-secondary{
   display: flex;
@@ -93,6 +95,8 @@ button{
   transition: all .2s ease-in-out;
   width: fit-content;
   align-items: center;
+  font-family: 'Inconsolata Variable', Courier, monospace;
+  cursor: pointer;
 }
 .typed-cursor{
   font-size: 2rem;
@@ -104,7 +108,7 @@ button{
 
 .chip{
   display: flex;
-        gap: 10px;
+        gap: 8px;
         justify-content: center;
         align-items: center;
         border: 1px solid white;
@@ -121,9 +125,13 @@ button{
 .chip img{
   width: 14px;
 }
+.chip svg{
+  width: 14px;
+  height: 14px;
+}
 .tag-container{
   display: grid;
-  grid-template-columns: repeat( auto-fill, minmax(110px, 1fr)  );
+  grid-template-columns: repeat( auto-fill, minmax(115px, 1fr)  );
   grid-template-rows: auto;
   width: 100%;
   gap: 10px;
@@ -154,7 +162,8 @@ button{
       font-size: 1.4rem;
     }
     .btn-primary:hover{
-      box-shadow: 4px 8px 14px rgba(255, 255, 255, 0.2);
+      box-shadow: 4px 6px 14px rgba(0 , 0, 0, 0.3);
+      scale: 1.05;
     }
     .btn-secondary:hover{
       border-color: var(--primary);
