@@ -10,7 +10,7 @@ image: {
     url: '/images/projects/shop.webp',
     alt: 'Shop para mobiles'
 }
-repository: (https://cuartetofelicidad.com/)
+repository: (https://github.com/Cesart18/shop)
 
 ---
 

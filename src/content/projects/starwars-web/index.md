@@ -12,7 +12,7 @@ image: {
     url: '/images/projects/starwars.webp',
     alt: 'El arte del cuarteto de la felicidad Web'
 }
-webUrl: https://cuartetofelicidad.com/
+webUrl: https://github.com/Cesart18/enciclopedia-starwars
 
 ---
 

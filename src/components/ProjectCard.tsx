@@ -18,7 +18,7 @@ export const ProjectCard = ({project}:Props) => {
 
 
             <div className="arrow-info">
-                <h4>{title}</h4>
+                <h3>{title}</h3>
                 {
                     <ul className="tag-container">
                     {tags.map((tag)=> {
@@ -38,7 +38,7 @@ export const ProjectCard = ({project}:Props) => {
                 {
                     (repository)
                     ? <a href={repository} target="_blank" className="btn-secondary">
-                        <img src="/icons/link.svg" alt="Ir al repositorio" />
+                        <img src="/icons/link.svg" alt="Ir al repositorio" width={20} height={20} loading="eager"/>
                         <p>Repositorio</p>
                     </a>
                     : null
@@ -49,7 +49,7 @@ export const ProjectCard = ({project}:Props) => {
                 {
                     (webUrl)
                     ? <a href={webUrl} target="_blank" className="btn-secondary" >
-                        <img src="/icons/globe-pointer.svg" alt="Ir al sitio web" />
+                        <img src="/icons/globe-pointer.svg" alt="Ir al sitio web" width={20} height={20} loading="eager" />
                         <p>Visitar Web</p>
                     </a>
                     : null

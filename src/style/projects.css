@@ -48,11 +48,18 @@
     gap: 20px;
     padding: 40px 0;
   }
-  
+  #title-projects{
+    margin-top: 10px;
+    font-size: 1.4rem;
+  }
   
 
   
   @media (min-width: 1024px) {
+    #title-projects{
+      margin-top: 20px;
+      font-size: 2rem;
+    }
     .tag-chip p{
         font-size: .9rem;
       }

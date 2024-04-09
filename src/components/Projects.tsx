@@ -30,7 +30,7 @@ export const Projects = () => {
   return (
     <section id="projects">
         <div className="hero-projects">
-            <h2>Proyectos</h2>
+            <h1 id="title-projects">Proyectos de programación</h1>
             <div className="tags-container">
                 {memorizedTags}
             </div>
