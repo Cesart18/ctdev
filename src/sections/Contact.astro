@@ -8,7 +8,7 @@ import { Image } from "astro:assets";
 
 <section id="contact">
     <h2>Contacta conmigo</h2>
-    <Image src={'/images/greet.png'} alt={'Memoji saludando'} width={200} height={200} loading={'lazy'}/>
+    <Image src={'/images/greet.webp'} alt={'Memoji saludando'} width={200} height={200} loading={'lazy'}/>
     <div class="form">
         <form name="contact" method="POST" data-netlify="true"  action="/contact">
     
@@ -25,7 +25,7 @@ import { Image } from "astro:assets";
 			<label for="message">Mensaje:</label>
             <textarea name="message" id="message" required rows="6" cols="12" placeholder="Mensaje"></textarea>
 
-			<input type="submit" value="Enviar" class="buy">
+			<input type="submit" value="Enviar" class="btn-primary">
 			<input type="hidden" name="form-name" value="contact">
         </form>
     
@@ -72,4 +72,12 @@ import { Image } from "astro:assets";
 
 		padding: 10px;
 	}
+	.btn-primary{
+		min-height: 50px;
+		height: max-content;
+		background-color: var(--primary);
+		color: var(--bg-color);
+		margin-top: 10px;
+	}
+	
 </style>

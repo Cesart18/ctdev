@@ -7,7 +7,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="">
     <section>
-        <Image src={'/images/sad.png'} alt={'Memoji triste'} width={200} height={200} loading={'eager'}/>
+        <Image src={'/images/sad.webp'} alt={'Memoji triste'} width={200} height={200} loading={'eager'}/>
         <h2>Página no encontrada</h2>
         <p>Lo siento la página que estas buscando no se encuentra disponible.</p>
         <a href="/">Volver al inicio</a>
@@ -16,6 +16,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <style>
     section{
+        margin-top: 50px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -35,7 +36,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
     @media (min-width: 768px) {
         section{
-            height: 80vh;
+            height: 70vh;
         }
         img{
             width: 180px;

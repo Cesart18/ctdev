@@ -20,7 +20,7 @@ const projects: CollectionEntry<"projects">[] = (
 
 <section>
   <Image
-    src={"/images/programador.png"}
+    src={"/images/programador.webp"}
     alt={"memoji"}
     width={120}
     height={120}
@@ -39,27 +39,32 @@ const projects: CollectionEntry<"projects">[] = (
   </div>
   <hr />
   <div class="projects-container">
-    <h3>Ultimos proyectos</h3>
+   <div class="title-project">
+    <h3>Ultimos proyectos</h3> 
+   </div>
     {
       projects.map((project) => {
         return <ProjectCard client:load project={project} />;
       })
     }
-    <a href={`/${projects[0].collection}/`} class="btn-secondary"
-      >Todos los proyectos</a
-    >
+    <div class="all-projects">
+      <a href={`/${projects[0].collection}/`} class="btn-secondary"
+    >Todos los proyectos</a
+  >
+    </div>
   </div>
   <hr />
 </section>
 
 <style>
-  section {
+   section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 60px;
     gap: 30px;
+    width: 100%;
   }
 
   .skills-title {
@@ -71,12 +76,23 @@ const projects: CollectionEntry<"projects">[] = (
     justify-content: center;
     align-content: center;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     gap: 10px;
     transition: all 1s ease-in-out;
+    width: 100%;
 
   }
+  .title-project{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+  }
+  .all-projects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   hr {
     width: 100%;
@@ -87,11 +103,9 @@ const projects: CollectionEntry<"projects">[] = (
   .projects-container {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
     gap: 30px;
-    align-items: center;
-    transition: all 1s ease-in-out;
-
+    width: 100%;
+    max-width: 600px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -103,5 +117,5 @@ const projects: CollectionEntry<"projects">[] = (
     .skills-container {
       max-width: 500px;
     }
-  }
+  } 
 </style>

@@ -4,7 +4,9 @@ import { repositories } from "../domain/api/github"
 
 
 
-const lastRepo = repositories.slice(0,3);
+const lastRepo = repositories
+.sort((a,b)=> new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime() )
+.slice(0,3);
 ---
 
 <section>

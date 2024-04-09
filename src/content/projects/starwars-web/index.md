@@ -9,7 +9,7 @@ tags:
 - Css
 - React
 image: {
-    url: '/images/projects/cuartetofelicidad.png',
+    url: '/images/projects/starwars.webp',
     alt: 'El arte del cuarteto de la felicidad Web'
 }
 webUrl: https://cuartetofelicidad.com/

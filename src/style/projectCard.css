@@ -21,7 +21,7 @@
     margin: auto;
 }
 .arrow-description{
-    height: 50px;
+    height: 60px;
     background-color: var(--bg-color-f);
     text-align: center;
     justify-content: center;
@@ -32,7 +32,7 @@
 }
 
 .arrow-info{
-    height: 50px;
+    height: 60px;
     overflow: hidden;
     position: absolute;
     bottom: 0;
@@ -60,7 +60,7 @@
 
 @media (min-width: 1024px) {
     .arrow-card:hover .arrow-info{
-        height: 210px;
+        height: 230px;
     }
     .arrow-card:hover .arrow-img img{
         opacity: .4;

@@ -8,7 +8,7 @@ tags:
 - Astro
 - TypeScript
 image: {
-    url: '/images/projects/cuartetofelicidad.png',
+    url: '/images/projects/cuartetofelicidad.webp',
     alt: 'El arte del cuarteto de la felicidad Web'
 }
 webUrl: https://cuartetofelicidad.com/

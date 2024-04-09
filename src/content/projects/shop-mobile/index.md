@@ -7,7 +7,7 @@ tags:
 - Flutter
 - Dart
 image: {
-    url: '/images/projects/cuartetofelicidad.png',
+    url: '/images/projects/shop.webp',
     alt: 'Shop para mobiles'
 }
 repository: (https://cuartetofelicidad.com/)

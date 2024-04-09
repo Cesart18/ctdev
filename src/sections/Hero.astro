@@ -15,7 +15,7 @@ import { Image } from "astro:assets";
     <div class="memoji">
       <div class="memo-frame">
         <Image
-          src={"/images/cesar.png"}
+          src={"/images/cesar.webp"}
           alt={"memoji"}
           width={180}
           height={200}
@@ -154,19 +154,19 @@ import { Image } from "astro:assets";
     if(memoji){
 
       memoji?.addEventListener("mouseenter", () => {
-        img.setAttribute("src", "/images/guino.png");
+        img.setAttribute("src", "/images/guino.webp");
       });
       memoji?.addEventListener("mouseleave", () => {
-        img.setAttribute("src", "/images/cesar.png");
+        img.setAttribute("src", "/images/cesar.webp");
       });
     }
     if(btn){
 
       btn?.addEventListener("mouseenter", () => {
-        img!.setAttribute("src", "/images/guino.png");
+        img!.setAttribute("src", "/images/guino.webp");
       });
       btn?.addEventListener("mouseleave", () => {
-        img!.setAttribute("src", "/images/cesar.png");
+        img!.setAttribute("src", "/images/cesar.webp");
       });
       btn?.addEventListener("click", () => {
         location.href = "/#contact/";
