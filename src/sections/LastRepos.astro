@@ -1,6 +1,26 @@
 ---
 import RepoCard from "../components/RepoCard.astro";
-import { repositories } from "../domain/api/github"
+
+import { Octokit } from "@octokit/rest";
+import type { Repository } from "../domain/entities/Repository";
+import { gitrepoToEntity } from "../domain/mapper/gitrepoToEntity";
+import type { GitRepo } from "../domain/models/GitRepo";
+
+
+
+    const auth = process.env.AUTH_TOKEN;
+
+const octokit = new Octokit({
+  auth: auth,
+});
+
+const resp = await octokit.request("GET /users/cesart18/repos", {
+    headers: { "X-GitHub-Api-Version": "2022-11-28" }
+});
+
+const repositories:Repository[] = await resp.data.map( (repo:GitRepo) => {
+    return gitrepoToEntity(repo);
+})
 
 
 

@@ -14,6 +14,6 @@ import LastRepos from "../sections/LastRepos.astro";
   <Hero />
   <About />
   <LastProjects />
-  <LastRepos />
+  <LastRepos client:load={true} />
   <Contact />
 </MainLayout>
