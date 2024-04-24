@@ -1,15 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import { SKILLS } from "../consts";
+import { filteredTag } from "../consts";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import SkillChip from "../components/SkillChip.astro";
 import { ProjectCard } from "../components/ProjectCard";
 
 const webTags = ["astro", "typescript", "react"];
-const skills = SKILLS.filter((skill) => {
-  return webTags.includes(skill.NAME.toLocaleLowerCase());
-});
+
 
 const projects: CollectionEntry<"projects">[] = (
   await getCollection("projects")
@@ -32,8 +30,9 @@ const projects: CollectionEntry<"projects">[] = (
 
   <div class="skills-container">
     {
-      skills.map((sk) => {
-        return <SkillChip title={sk.NAME} url={sk.HREF} />;
+      webTags.map((tag) => {
+        const sk = filteredTag(tag);
+        return <SkillChip title={sk!.NAME} url={sk?.HREF} />;
       })
     }
   </div>

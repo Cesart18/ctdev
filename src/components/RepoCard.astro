@@ -1,15 +1,31 @@
 ---
+import { Octokit } from "@octokit/rest";
 import type { Repository } from "../domain/entities/Repository"
 import { formatDate } from "../utils/utils";
+import { filteredLanguages } from "../consts";
+import SkillChip from "./SkillChip.astro";
 
 
     interface Props{
         repo: Repository
     }
 
-    const { repo } = Astro.props;
-    const {  name, createdAt, description, homepage, htmlUrl } = repo.data;
+    const auth = process.env.AUTH_TOKEN;
 
+const octokit = new Octokit({
+  auth: auth,
+});
+
+const { repo } = Astro.props;
+const {  name, createdAt, description, homepage, htmlUrl } = repo.data;
+
+const resp = await octokit.request(`GET /repos/Cesart18/${repo.data.name}/languages`, {
+    headers: { "X-GitHub-Api-Version": "2022-11-28" }
+});
+
+const skills = filteredLanguages(resp.data)
+console.log(resp.data)
+console.log(skills)
 const date = new Date(createdAt);
 
 ---
@@ -21,6 +37,13 @@ const date = new Date(createdAt);
         <p>{description}</p>
         : null
         
+    }
+    {
+        (skills)?
+        skills.map( sk =>  (
+            <SkillChip title={sk.NAME} url={sk.HREF}/>
+        ))
+        : null
     }
     {
         (htmlUrl)
@@ -46,10 +69,15 @@ const date = new Date(createdAt);
     div{
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 16px;
         border: 1px solid;
         padding: 20px;
         width: 100%;
         border-radius: 4px;
+        max-width: 400px;
+        width: 100%;
+    }
+    .btn-secondary{
+        margin-top: 10px;
     }
 </style>

@@ -129,19 +129,29 @@ import { Icon } from "astro-icon/components";
 </style>
 <script>
 
-        document.addEventListener('astro:page-load', () => {
-        const menu = document.querySelector('.menu');
-        const nav = document.querySelector('nav');
-    const navM = document.querySelector('.navigation-m');
-    menu?.addEventListener('click', () => {
-        navM?.classList.toggle('show');
-        nav?.classList.toggle('menu-show')
-    });
-    
-    document.addEventListener('scroll', () => {
-        navM?.classList.remove('show');
-        nav?.classList.remove('menu-show')
-    });
-})
+    const init = () => {
+
+        
+
+            const menu = document.querySelector('.menu');
+            const nav = document.querySelector('nav');
+            const navM = document.querySelector('.navigation-m');
+            menu?.addEventListener('click', () => {
+                navM?.classList.toggle('show');
+                nav?.classList.toggle('menu-show')
+            });
+            
+            document.addEventListener('scroll', () => {
+                navM?.classList.remove('show');
+                nav?.classList.remove('menu-show')
+            });
+
+            document.addEventListener('astro:after-swap', () => {
+                { once: true }
+            });
+    }
+
+    init();
+    document.addEventListener('astro:after-swap', init);
 
 </script>

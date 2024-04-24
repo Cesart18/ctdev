@@ -18,6 +18,8 @@ const resp = await octokit.request("GET /users/cesart18/repos", {
     headers: { "X-GitHub-Api-Version": "2022-11-28" }
 });
 
+console.log(resp.data);
+
 const repositories:Repository[] = await resp.data.map( (repo:GitRepo) => {
     return gitrepoToEntity(repo);
 })
@@ -26,7 +28,7 @@ const repositories:Repository[] = await resp.data.map( (repo:GitRepo) => {
 
 const lastRepo = repositories
 .sort((a,b)=> new Date(b.data.createdAt).getTime() - new Date(a.data.createdAt).getTime() )
-.slice(0,3);
+.slice(0,5);
 ---
 
 <section>
@@ -47,6 +49,7 @@ const lastRepo = repositories
         flex-direction: column;
         align-items: center;
         gap: 40px;
+        padding: 0 20px;
     }
     hr{
         width: 100%;
@@ -57,5 +60,7 @@ const lastRepo = repositories
         flex-direction: column;
         gap: 20px;
         align-items: center;
+        width: 100%;
+        max-width: 100%;
     }
 </style>

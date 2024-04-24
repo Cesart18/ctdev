@@ -1,4 +1,5 @@
 import type { Links, Skills } from "./types";
+import { type Octokit } from '@octokit/rest';
 
 export const LINKS: Links[] = [
     {
@@ -66,3 +67,34 @@ export const SKILLS: Skills[] = [
         HREF: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es-419#:~:text=SEO%E2%80%94short%20for%20search%20engine,site%20through%20a%20search%20engine.'
     },
 ]
+
+
+
+export const filteredTag = ( tag:string ) => {
+
+    const skill = SKILLS.find( (sk) => sk.NAME.toLocaleLowerCase() == tag.toLocaleLowerCase() );
+
+    return skill;
+
+
+}
+
+interface ApiRespuesta  {
+    [key:string]: number
+}
+
+export const filteredLanguages = ( lang: ApiRespuesta ) => {
+
+
+    const skills = SKILLS.filter((skill) => {
+        const skillsNameLower = skill.NAME.toLocaleLowerCase();
+        for ( const key in lang ){
+            if( key.toLocaleLowerCase() === skillsNameLower ){
+                return true;
+            }
+            return false
+        }
+    })
+
+    return skills;
+}

@@ -1,11 +1,10 @@
 import type { CollectionEntry } from "astro:content"
 import '../style/projectCard.css';
+import { filteredTag } from "../consts";
 
 interface Props {
     project: CollectionEntry<'projects'>;
 }
-
-
 export const ProjectCard = ({project}:Props) => {
     const { data, slug, collection } = project;
     const { tags, title, image, repository, webUrl } = data;
@@ -21,12 +20,13 @@ export const ProjectCard = ({project}:Props) => {
                 {
                     <ul className="tag-container">
                     {tags.map((tag)=> {
+                        const skill = filteredTag(tag);
                         return (
-                            <li key={tag}>
-                                <div className={"chip"} >
-                                    <img src={`/icons/${tag.toLocaleLowerCase()}.svg`} alt="" width={20} height={20}/>
-                                    <p>{tag}</p>
-                                </div>
+                            <li key={skill?.NAME}>
+                                <a className={"chip"} href={skill?.HREF} target="_blank">
+                                    <img src={`/icons/${skill?.NAME.toLocaleLowerCase()}.svg`} alt="" width={20} height={20}/>
+                                    <p>{skill?.NAME}</p>
+                                </a>
                             </li>
                         )
                     })}
