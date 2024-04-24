@@ -14,7 +14,7 @@ image: {
     url: '/images/projects/cinemapedia.webp',
     alt: 'Cinemapedia'
 }
-repository: (https://github.com/Cesart18/cinemapedia)
+repository: https://github.com/Cesart18/cinemapedia
 
 ---
 

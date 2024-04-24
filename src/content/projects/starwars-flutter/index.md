@@ -13,7 +13,7 @@ image: {
     url: '/images/projects/starwars.webp',
     alt: 'Shop para mobiles'
 }
-repository: (https://github.com/Cesart18/starwars-flutter)
+repository: https://github.com/Cesart18/starwars-flutter
 
 ---
 
