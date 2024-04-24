@@ -24,8 +24,6 @@ const resp = await octokit.request(`GET /repos/Cesart18/${repo.data.name}/langua
 });
 
 const skills = filteredLanguages(resp.data)
-console.log(resp.data)
-console.log(skills)
 const date = new Date(createdAt);
 
 ---

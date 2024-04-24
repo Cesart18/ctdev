@@ -1,5 +1,4 @@
 import type { Links, Skills } from "./types";
-import { type Octokit } from '@octokit/rest';
 
 export const LINKS: Links[] = [
     {
