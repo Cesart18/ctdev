@@ -65,6 +65,14 @@ export const SKILLS: Skills[] = [
         NAME: 'SEO',
         HREF: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es-419#:~:text=SEO%E2%80%94short%20for%20search%20engine,site%20through%20a%20search%20engine.'
     },
+    {
+        NAME: 'go',
+        HREF: 'https://go.dev/'
+    },
+    {
+        NAME: 'postgres',
+        HREF: 'https://www.postgresql.org/'
+    },
 ]
 
 

@@ -123,11 +123,11 @@ button{
   text-transform: uppercase;
 }
 .chip img{
-  width: 14px;
+  width: 18px;
 }
 .chip svg{
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
 }
 .tag-container{
   display: grid;

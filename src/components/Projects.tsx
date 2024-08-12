@@ -11,7 +11,7 @@ export const Projects = () => {
     const {tags, toggleTag, filter, filteredProjects} = useProjects();
     
     const filteredTags = tags.filter((tag) => {
-        const frameTags: string[] = ['Astro', 'Flutter', 'React' ];
+        const frameTags: string[] = ['Astro', 'Flutter', 'React', 'Go' ];
         return frameTags.includes(tag);
     })
     

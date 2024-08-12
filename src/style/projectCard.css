@@ -11,7 +11,7 @@
 .arrow-img img{
     width: 100%;
     margin: 0;
-    max-height: 280px;
+    max-height: 230px;
 }
 .arrow-img::before{
     content: '';

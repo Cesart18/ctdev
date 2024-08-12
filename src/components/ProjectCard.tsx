@@ -19,7 +19,7 @@ export const ProjectCard = ({project}:Props) => {
                 <h3>{title}</h3>
                 {
                     <ul className="tag-container">
-                    {tags.map((tag)=> {
+                    {tags.map((tag : string)=> {
                         const skill = filteredTag(tag);
                         return (
                             <li key={skill?.NAME}>
